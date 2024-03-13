@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,26 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     Vector2 movement;
+
+    //private WeaponParentScript weaponParent;
+
+    //[SerializeField]
+    //private InputActionReference sword, pointerPosition;
+
+    //private void OnEnable()
+    //{
+    //    sword.action.performed += PerformAttack;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    sword.action.performed -= PerformAttack;
+    //}
+
+    //private void PerformAttack(InputAction.CallbackContext obj)
+    //{
+    //    weaponParent.Attack();
+    //}
 
     void Update()
     {
@@ -20,4 +41,12 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
     }
+
+    //private Vector2 GetPointerInput()
+    //{
+    //    Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
+    //    mousePos.z = Camera.main.nearClipPlane;
+    //    return Camera.main.ScreenToWorldPoint(mousePos);
+    //}
+
 }
