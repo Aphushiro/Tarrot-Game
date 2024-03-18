@@ -18,6 +18,10 @@ public class PlayerStats : MonoBehaviour
     void TakeDamage (float damage)
     {
         int intDmg = Mathf.FloorToInt(damage);
+        if (intDmg < 1)
+        {
+            intDmg = 1;
+        }
         currentHealth -= intDmg;
         healthbar.SetHealth(currentHealth);
     }

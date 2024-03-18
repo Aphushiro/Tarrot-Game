@@ -14,14 +14,19 @@ public class RoomSpawner : MonoBehaviour
     GameObject templateToThis;
     private bool spawned = false;
 
+    public float spawnTime;
+
     private void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         float spawnDelay = Random.Range(0.1f, 0.4f);
+        spawnTime = Time.time;
+        Debug.Log(spawnTime);
         Invoke("Spawn", spawnDelay);
     }
     void Spawn()
     {
+        GameObject thisRoom;
         if (spawned)
         {
             return;
@@ -31,22 +36,22 @@ public class RoomSpawner : MonoBehaviour
         {
             case 0:
                 roomID = Random.Range(0, templates.bottomRooms.Length);
-                Instantiate(templates.bottomRooms[roomID], transform.position, Quaternion.identity);
+                thisRoom = Instantiate(templates.bottomRooms[roomID], transform.position, Quaternion.identity);
                 spawned = true;
                 break;
             case 1:
                 roomID = Random.Range(0, templates.topRooms.Length);
-                Instantiate(templates.topRooms[roomID], transform.position, Quaternion.identity);
+                thisRoom = Instantiate(templates.topRooms[roomID], transform.position, Quaternion.identity);
                 spawned = true;
                 break;
             case 2:
                 roomID = Random.Range(0, templates.leftRooms.Length);
-                Instantiate(templates.leftRooms[roomID], transform.position, Quaternion.identity);
+                thisRoom = Instantiate(templates.leftRooms[roomID], transform.position, Quaternion.identity);
                 spawned = true;
                 break;
             case 3:
                 roomID = Random.Range(0, templates.rightRooms.Length);
-                Instantiate(templates.rightRooms[roomID], transform.position, Quaternion.identity);
+                thisRoom = Instantiate(templates.rightRooms[roomID], transform.position, Quaternion.identity);
                 spawned = true;
                 break;
             default:
@@ -56,11 +61,14 @@ public class RoomSpawner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("SpawnPoint") && other.GetComponent<RoomSpawner>().spawned == true)
+        if (other.CompareTag("SpawnPoint") && !transform.CompareTag("OriginSpawn"))
         {
-            Destroy(gameObject);
+            if (other.GetComponent<RoomSpawner>().spawnTime > spawnTime)
+            {
+                Destroy(gameObject);
+            }
         }
-        if (other.CompareTag("OriginSpawn"))
+        if (other.CompareTag("OriginSpawn") && !transform.CompareTag("OriginSpawn"))
         {
             Destroy(gameObject);
         }
