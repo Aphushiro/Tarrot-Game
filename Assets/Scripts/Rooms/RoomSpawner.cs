@@ -32,31 +32,37 @@ public class RoomSpawner : MonoBehaviour
             return;
         }
         int roomID = 0;
+        if (templates.roomLimitReached == false)
+        {
+            roomID = Random.Range(0, templates.bottomRooms.Length);
+
+        }
         switch (openingDirection)
         {
             case 0:
-                roomID = Random.Range(0, templates.bottomRooms.Length);
                 thisRoom = Instantiate(templates.bottomRooms[roomID], transform.position, Quaternion.identity);
+                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             case 1:
-                roomID = Random.Range(0, templates.topRooms.Length);
                 thisRoom = Instantiate(templates.topRooms[roomID], transform.position, Quaternion.identity);
+                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             case 2:
-                roomID = Random.Range(0, templates.leftRooms.Length);
                 thisRoom = Instantiate(templates.leftRooms[roomID], transform.position, Quaternion.identity);
+                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             case 3:
-                roomID = Random.Range(0, templates.rightRooms.Length);
                 thisRoom = Instantiate(templates.rightRooms[roomID], transform.position, Quaternion.identity);
+                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             default:
                 break;
         }
+        templates.CheckRoomSize();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
