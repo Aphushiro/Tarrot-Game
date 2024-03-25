@@ -8,6 +8,7 @@ TagManager:
   - Rooms
   - OriginSpawn
   - OverlapCheck
+  - StartingRoom
   layers:
   - Default
   - TransparentFX

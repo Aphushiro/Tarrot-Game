@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PreRoom : MonoBehaviour
 {
     public string roomType;
+
+    public List<string> blockList = new List<string>();
+
     public string newName;
     RoomTemplates templates;
 
@@ -15,28 +19,31 @@ public class PreRoom : MonoBehaviour
         newName = roomType;
 
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("CheckToKeepThisRoom", 0.5f);
+        templates.currentRooms.Add(this.gameObject);
     }
 
-    public void RemoveDoor (char blocked)
+    private void Update()
     {
-        newName = newName.Trim(blocked);
-    }
-
-    private void CheckToKeepThisRoom ()
-    {
-        if (newName == roomType)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            templates.currentRooms.Add(this.gameObject);
-        } else
-        {
-            //CreateNewRoom();
+            Invoke("RemoveDoors", 0.3f);
         }
+    }
+
+    public void RemoveDoors ()
+    {
+        blockList = blockList.Distinct().ToList();
+        string[] removeList = blockList.ToArray();
+        foreach (string c in removeList)
+        {
+            newName = newName.Replace(c, string.Empty);
+        }
+        CreateNewRoom();
     }
 
     private void CreateNewRoom ()
     {
-        GameObject newRoom = Resources.Load(newName) as GameObject;
+        GameObject newRoom = Resources.Load("Rooms/" + newName) as GameObject;
         Destroy(gameObject);
         Instantiate(newRoom, transform.position, Quaternion.identity);
     }

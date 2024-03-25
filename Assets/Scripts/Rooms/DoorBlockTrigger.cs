@@ -6,11 +6,11 @@ public class DoorBlockTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("OverlapCheck"))
+        if (collision.CompareTag("OverlapCheck") == false)
         {
-            return;
+            GetComponentInParent<PreRoom>().blockList.Add(gameObject.name[0].ToString());
+            //GetComponentInParent<PreRoom>().RemoveDoor(gameObject.name[0]);
+            Destroy(gameObject);
         }
-        GetComponentInParent<PreRoom>().RemoveDoor(gameObject.name[0]);
-        Destroy(gameObject);
     }
 }

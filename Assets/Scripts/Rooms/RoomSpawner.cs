@@ -21,7 +21,13 @@ public class RoomSpawner : MonoBehaviour
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         float spawnDelay = Random.Range(0.1f, 0.4f);
         spawnTime = Time.time;
-        Debug.Log(spawnTime);
+
+        if (spawnTime < 0.1f)
+        {
+            spawnDelay = 0.2f;
+            Debug.Log("Starting room spawned");
+        }
+
         Invoke("Spawn", spawnDelay);
     }
     void Spawn()
