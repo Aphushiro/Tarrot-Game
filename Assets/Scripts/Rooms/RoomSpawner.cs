@@ -27,6 +27,7 @@ public class RoomSpawner : MonoBehaviour
     void Spawn()
     {
         GameObject thisRoom;
+        //PreRoom roomScript;
         if (spawned)
         {
             return;
@@ -41,22 +42,19 @@ public class RoomSpawner : MonoBehaviour
         {
             case 0:
                 thisRoom = Instantiate(templates.bottomRooms[roomID], transform.position, Quaternion.identity);
-                templates.currentRooms.Add(thisRoom);
+                //roomScript = thisRoom.GetComponent<PreRoom>();
                 spawned = true;
                 break;
             case 1:
                 thisRoom = Instantiate(templates.topRooms[roomID], transform.position, Quaternion.identity);
-                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             case 2:
                 thisRoom = Instantiate(templates.leftRooms[roomID], transform.position, Quaternion.identity);
-                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             case 3:
                 thisRoom = Instantiate(templates.rightRooms[roomID], transform.position, Quaternion.identity);
-                templates.currentRooms.Add(thisRoom);
                 spawned = true;
                 break;
             default:

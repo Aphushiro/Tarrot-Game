@@ -2871,7 +2871,6 @@ GameObject:
   - component: {fileID: 5311847617133296747}
   - component: {fileID: 3709595820713111760}
   - component: {fileID: 1921542547594769725}
-  - component: {fileID: 7267488786134487552}
   m_Layer: 0
   m_Name: Square
   m_TagString: OverlapCheck
@@ -2991,18 +2990,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7267488786134487552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7132618917154858719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ffb26fa98e4844d8e1ea2f8d89cdd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7371973451085381635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,6 +3129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6036263456065097995}
+  - component: {fileID: -8697032055217718913}
   m_Layer: 0
   m_Name: )Start All
   m_TagString: Untagged
@@ -3168,6 +3156,18 @@ Transform:
   - {fileID: 6596502453606915734}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8697032055217718913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589382593210228261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f4ea6d50de85d043a90bbffa0a84f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7986635682916773862
 GameObject:
   m_ObjectHideFlags: 0
