@@ -26,10 +26,6 @@ public class RoomTemplates : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            ReloadRooms();
-        }
 
         // Determine when map has loaded
         int l = currentRooms.Count;
@@ -46,11 +42,21 @@ public class RoomTemplates : MonoBehaviour
         }
         else if (floorIsLoading == true)
         {
-            // Reload floor when it has loaded
-            ReloadRooms();
-            Invoke("ReloadRooms", 1f);
-            floorIsLoading = false;
+            // Reload floor when it has loaded, and initiate room replacement
+            
+            StartCoroutine(FinishTemplates());
         }
+    }
+
+    IEnumerator FinishTemplates ()
+    {
+        floorIsLoading = false;
+        ReloadRooms();
+        yield return new WaitForSeconds(1);
+        ReloadRooms();
+        //Invoke("ReloadRooms", 1f);
+        yield return new WaitForSeconds(1);
+        replaceFinal.StartRoomReplacement();
     }
 
     public void ReloadRooms ()

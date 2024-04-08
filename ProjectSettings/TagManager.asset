@@ -46,3 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: HideAway
+    uniqueID: 3263275891
+    locked: 0
+  - name: RoomBG
+    uniqueID: 2969505039
+    locked: 0
+  - name: Player
+    uniqueID: 476469269
+    locked: 0

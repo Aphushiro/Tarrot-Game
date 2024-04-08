@@ -24,10 +24,7 @@ public class PreRoom : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Invoke("RemoveDoors", 0.3f);
-        }
+
     }
 
     public void RemoveDoors ()
