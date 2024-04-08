@@ -17,6 +17,13 @@ public class RoomTemplates : MonoBehaviour
     private int curRooms = 0;
     public bool floorIsLoading = true;
 
+    private ReplaceFinal replaceFinal;
+
+    private void Start()
+    {
+        replaceFinal = GetComponent<ReplaceFinal>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
