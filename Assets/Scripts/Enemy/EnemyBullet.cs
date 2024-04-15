@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
 
     private Transform player;
     private Vector2 target;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -15,26 +16,23 @@ public class EnemyBullet : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         target = new Vector2(player.position.x, player.position.y);
+
+        rb = gameObject.GetComponent<Rigidbody2D>();
+
+        // Find direction of bullet
+        Vector2 dir = new Vector2(target.x - rb.position.x, target.y - rb.position.y).normalized;
+        rb.AddForce(dir * bulletSpeed, ForceMode2D.Impulse);
+        Destroy(gameObject, 2);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, target, bulletSpeed * Time.deltaTime);
-
-        if (transform.position.x == target.x && transform.position.y == target.y)
-        {
-            DestroyBullet();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             DestroyBullet();
         }
     }
+
 
     void DestroyBullet()
     {

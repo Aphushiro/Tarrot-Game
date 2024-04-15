@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RoomTemplates : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class RoomTemplates : MonoBehaviour
     public bool floorIsLoading = true;
 
     private ReplaceFinal replaceFinal;
+
+    public UnityEvent OnTemplateOver;
 
     private void Start()
     {
@@ -56,6 +59,7 @@ public class RoomTemplates : MonoBehaviour
         ReloadRooms();
         //Invoke("ReloadRooms", 1f);
         yield return new WaitForSeconds(1);
+        OnTemplateOver.Invoke();
         replaceFinal.StartRoomReplacement();
     }
 

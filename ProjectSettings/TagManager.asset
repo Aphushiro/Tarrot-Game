@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: RoomBG
     uniqueID: 2969505039
+    locked: 0
+  - name: Enemy
+    uniqueID: 4007628641
     locked: 0
   - name: Player
     uniqueID: 476469269
