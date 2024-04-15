@@ -9,6 +9,7 @@ public class Tooltip : MonoBehaviour
     private void OnMouseEnter()
     {
         TooltipManager._instance.SetAndShowToolTip(message);
+        Debug.Log("Mouse is over");
     }
 
     private void OnMouseExit()
