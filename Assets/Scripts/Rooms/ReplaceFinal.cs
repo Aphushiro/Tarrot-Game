@@ -56,6 +56,31 @@ public class ReplaceFinal : MonoBehaviour
         {
             GenEnemyRoom();
         }
+
+        // Fill out empty rooms
+        foreach (GameObject room in oneRooms)
+        {
+            if (room == null) continue;
+
+            GenEmptyRoom(room);
+        }
+        oneRooms.Clear();
+
+        foreach (GameObject room in twoRooms)
+        {
+            if (room == null) continue;
+
+            GenEmptyRoom(room);
+        }
+        twoRooms.Clear();
+
+        foreach (GameObject room in threeRooms)
+        {
+            if (room == null) continue;
+
+            GenEmptyRoom(room);
+        }
+        threeRooms.Clear();
     }
 
     public void OrderRooms ()
@@ -107,6 +132,7 @@ public class ReplaceFinal : MonoBehaviour
 
         // Instantiate new room
         GameObject newStart = Instantiate(newRoom, pos, Quaternion.identity);
+        startRoom = newStart;
     }
 
     void GenBossRoom ()
@@ -166,7 +192,7 @@ public class ReplaceFinal : MonoBehaviour
             Vector2 pos = enemy.transform.position;
             string tempName = enemy.GetComponent<PreRoom>().newName;
             string findName = tempName + id;
-            Debug.Log(findName);
+            //Debug.Log(findName);
 
             GameObject newRoom = Resources.Load("Rooms/FinishedRooms/Enemy/" + findName) as GameObject;
             GameObject newEnemy = Instantiate(newRoom, pos, Quaternion.identity);
@@ -179,6 +205,26 @@ public class ReplaceFinal : MonoBehaviour
     void GenEnemyRoom ()
     {
         //int roomType = Random.Range()
+    }
+
+    void GenEmptyRoom (GameObject tempRoom)
+    {
+        string id = "empty";
+
+        // Assuming we only use dead ends
+
+        Vector2 pos = tempRoom.transform.position;
+        string tempName = tempRoom.GetComponent<PreRoom>().newName;
+        string findName = tempName + id;
+
+        GameObject newRoom = Resources.Load("Rooms/FinishedRooms/Empty/" + findName) as GameObject;
+
+        // Replace the template room
+        Destroy(tempRoom);
+
+        // Instantiate new room
+        GameObject newEmpty = Instantiate(newRoom, pos, Quaternion.identity);
+        finRooms.Add(newEmpty);
     }
 
     // Update is called once per frame
