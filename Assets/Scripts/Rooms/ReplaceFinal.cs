@@ -13,7 +13,7 @@ public class ReplaceFinal : MonoBehaviour
 
     int bossCount = 1;
     int treasureCount = 1;
-    int enemyCount = 1;
+    int enemyCount = 0;
 
     public List<GameObject> finRooms;
 
@@ -21,9 +21,6 @@ public class ReplaceFinal : MonoBehaviour
     void Start()
     {
         roomTemplates = GetComponent<RoomTemplates>();
-        int amount = roomTemplates.currentRooms.Count;
-
-        treasureCount += Mathf.FloorToInt(amount/10);
     }
 
     public void StartRoomReplacement ()
@@ -34,8 +31,10 @@ public class ReplaceFinal : MonoBehaviour
     IEnumerator ConstructRoom()
     {
         OrderRooms();
-        yield return new WaitForSeconds(1);
+        CalculateSpecialRoomCount();
+        yield return new WaitForSeconds(0.5f);
         GenStartRoom();
+
         // Generate boss rooms
         for (int i = 0; i < bossCount; i++)
         {
@@ -50,12 +49,69 @@ public class ReplaceFinal : MonoBehaviour
         }
         yield return new WaitForSeconds(.5f);
 
-        FillDeadendEnemy();
         // Generate enemy rooms
+        FillDeadendEnemy();
+
         for (int i = 0; i < enemyCount; i++)
         {
-            GenEnemyRoom();
+            List<int> pickRanRoom = new List<int>();
+
+            // Add option to pick lists of rooms, only of which aren't empty
+            if (oneRooms.Count > 0)
+            {
+                pickRanRoom.Add(0);
+            }
+            if (twoRooms.Count > 0)
+            {
+                pickRanRoom.Add(1);
+            }
+            if (threeRooms.Count > 0)
+            {
+                pickRanRoom.Add(2);
+            }
+            int ranRoomList = Random.Range(0, pickRanRoom.Count);
+
+            switch(pickRanRoom[ranRoomList])
+            {
+                case 0:
+                    GenEnemyRoom(oneRooms);
+                    break;
+                case 1:
+                    GenEnemyRoom(twoRooms);
+                    break;
+                case 2:
+                    GenEnemyRoom(threeRooms);
+                    break;
+
+                default:
+                    break;
+            }
         }
+
+        // Fill out empty rooms
+        foreach (GameObject room in oneRooms)
+        {
+            if (room == null) continue;
+
+            GenEmptyRoom(room);
+        }
+        oneRooms.Clear();
+
+        foreach (GameObject room in twoRooms)
+        {
+            if (room == null) continue;
+
+            GenEmptyRoom(room);
+        }
+        twoRooms.Clear();
+
+        foreach (GameObject room in threeRooms)
+        {
+            if (room == null) continue;
+
+            GenEmptyRoom(room);
+        }
+        threeRooms.Clear();
     }
 
     public void OrderRooms ()
@@ -89,6 +145,18 @@ public class ReplaceFinal : MonoBehaviour
         Debug.Log("Rooms ordered. Unassigned: " + unassigned);
     }
 
+    void CalculateSpecialRoomCount ()
+    {
+        // Treasure room count
+        int amount = roomTemplates.currentRooms.Count;
+        treasureCount += Mathf.FloorToInt(amount / 10);
+
+        // Calculate additional enemy rooms to spawn beyond dead ends.
+        int notDeadEnd = amount - oneRooms.Count;
+        Debug.Log(notDeadEnd);
+        enemyCount = Mathf.FloorToInt(notDeadEnd / 3);
+    }
+
     void GenStartRoom ()
     {
         string id = "start";
@@ -107,6 +175,7 @@ public class ReplaceFinal : MonoBehaviour
 
         // Instantiate new room
         GameObject newStart = Instantiate(newRoom, pos, Quaternion.identity);
+        startRoom = newStart;
     }
 
     void GenBossRoom ()
@@ -166,7 +235,7 @@ public class ReplaceFinal : MonoBehaviour
             Vector2 pos = enemy.transform.position;
             string tempName = enemy.GetComponent<PreRoom>().newName;
             string findName = tempName + id;
-            Debug.Log(findName);
+            //Debug.Log(findName);
 
             GameObject newRoom = Resources.Load("Rooms/FinishedRooms/Enemy/" + findName) as GameObject;
             GameObject newEnemy = Instantiate(newRoom, pos, Quaternion.identity);
@@ -176,16 +245,48 @@ public class ReplaceFinal : MonoBehaviour
         oneRooms.Clear();
     }
 
-    void GenEnemyRoom ()
+    void GenEnemyRoom (List<GameObject> roomTypeList)
     {
-        //int roomType = Random.Range()
+        string id = "enemy";
+
+        // Deciding what room to replace
+
+        int toReplace = Random.Range(0, roomTypeList.Count);
+        GameObject tempRoom = roomTypeList[toReplace];
+
+        Vector2 pos = tempRoom.transform.position;
+        string tempName = tempRoom.GetComponent<PreRoom>().newName;
+        string findName = tempName + id;
+        //Debug.Log(findName);
+
+        GameObject newRoom = Resources.Load("Rooms/FinishedRooms/Enemy/" + findName) as GameObject;
+
+        // Remove template room from list
+        Destroy(tempRoom);
+        roomTypeList.Remove(roomTypeList[toReplace]);
+
+        // Instantiate new room
+        GameObject newEnemy = Instantiate(newRoom, pos, Quaternion.identity);
+        finRooms.Add(newEnemy);
     }
 
-    // Update is called once per frame
-    void Update()
+    void GenEmptyRoom (GameObject tempRoom)
     {
-        
-    }
+        string id = "empty";
 
-    
+        // Assuming we only use dead ends
+
+        Vector2 pos = tempRoom.transform.position;
+        string tempName = tempRoom.GetComponent<PreRoom>().newName;
+        string findName = tempName + id;
+
+        GameObject newRoom = Resources.Load("Rooms/FinishedRooms/Empty/" + findName) as GameObject;
+
+        // Replace the template room
+        Destroy(tempRoom);
+
+        // Instantiate new room
+        GameObject newEmpty = Instantiate(newRoom, pos, Quaternion.identity);
+        finRooms.Add(newEmpty);
+    }
 }

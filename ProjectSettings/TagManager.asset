@@ -9,6 +9,7 @@ TagManager:
   - OriginSpawn
   - OverlapCheck
   - StartingRoom
+  - FinalRoom
   layers:
   - Default
   - TransparentFX

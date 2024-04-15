@@ -8,6 +8,11 @@ public class GameMng : MonoBehaviour
     public static int maxRooms;
     public int[] levelLimits;
 
+    public List<GameObject> allEnemies;
+    public List<GameObject> availableEnemies;
+    int nextEnemy = 0;
+    public int waveSize = 4;
+
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -28,5 +33,27 @@ public class GameMng : MonoBehaviour
     private void Start()
     {
         SetMaxRooms(0);
+
+        for (int i = 0; i < 2; i++)
+        {
+            availableEnemies.Add(allEnemies[nextEnemy]);
+            nextEnemy++;
+        }
+    }
+
+    public void NextLevel ()
+    {
+        AddEnemy();
+    }
+
+    public void AddEnemy ()
+    {
+        if (allEnemies.Count < nextEnemy)
+        {
+            Debug.Log("All enemies added");
+            return;
+        }
+        availableEnemies.Add(allEnemies[nextEnemy]);
+        nextEnemy++;
     }
 }
