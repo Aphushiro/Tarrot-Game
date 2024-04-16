@@ -477,12 +477,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIeys9rS7XAIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzqVjAyGht9YQ0kMCE9LJxRdhrbEGWfLoER4Z/ntXso0dOj2xfPvt7rcP+ZNwaSrIrNJLzdmzYkB+DIi3ybdB53yCI90pueFnaDnvnNnCk2jgvFLLFeKxDzOqBKt59lPuhCdHCDrJc6XLBdtBoow1COdUGECXVtZHS4Q+B+SIP8OZDzmhNbr31hmtWTS4oJmBtKA7aktsaTXLyUzQsgLmJXfk6TVtTZPYTMOIvt/57EoIbhotxJ6q0GtCK+OwEyQwTrG3IMC3WgDfFdYn7Aev8tyAbURpeppzjSOqs5Jfqp5bSc2+VvZBhfN14mg0CbLqrM//EIZxcOdalU9t4TjyRWzBs/0rPWXU2N5k+/D8q3InD1Ts6VbAewHyRS21cpKh02rnQ52B0bz7e+0tKSDbd3gt9QZ01f/343u4hPaPieDlNox+UgMbocLAw/ZB43J+o+BwG6ZJgahX8cfAG931j6hxPHJtLLqaLqWXt1VOeypZhJn5bpxNlJYQ4EZ0BZIKe1pjGnu7wxtfr+yN55H659IUb3ztK7gJCXDHj6Ib11odrssyhTo8gylWzgouoRPtHS84p0RJWZ9YfyZt2MbpnGZ9DTvH2dfbIuNJNLsfw90DexjHWbwdTrZx9DCdzcZ0xOJ8Skk4Pi6xUSrWtdJmPrg22YmSeGjtZ2Sw1LQK9840PSz5uVS9mXOZq02mAeSqznBVDhqL4MtkC8ZxQhuwlsuwcPKZEqGyPbD0migNrS6OVtO0y5KSin8o65GUJOG7kRIPX495reGDw8EXb5NdyOUvUEsDBBQAAAgIAAAIIewvsoSvbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSsYmBpblxqqlFioWxYbJhkq5JkqGBhZmlpXGiUYphmlmiUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeys9rS7XAIAABYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIewvsoSvbQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    dataString: UEsDBBQAAAgIAAAIIezdc99qWwIAABcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzqVjA3nQW2sI6YGECenk4ouw1liDLHn04JEM/70r2caGTk8s3367++1D/iJcmgoyq/RCc7ZUDMiPAfE2+TbonM9wpFsl1/wTWs4HZ7bwJBo4b9RyhXjsw4wqwWqe/ZRb4ckRgk7yXOlyzraQKGMNwjkVBtCllfXREqGvATniz3DqQ05ojR689YnWNBqc0cxAWtAdtSW2tJrlZCZoWQHzkjvy6JK2pklspmFE3+98diUEN40WYk9V6DWhlXHYCRIYp9hbEOBbLYBvC+sT9oNf89yAbURpeppxjSOqs5Jfqp5bSc2uVranwvk6cTSaBFl11uU/hGEc3LlW5XNbOI58EVvwbPdGTxk1tjfZPjy7Vu7kgYod3Qj4KEC+qIVWTjJ0Wu18qDMwmnV/L70lBWS7Dq+l3oCu+v9+fA/n0P4xEbzchNFPamAtVBh42D5oXM5vFBxuwzQpEPUq/hh4p9v+ETWOJ66NRVfTpfTyNsppTyXzMDPfjbOJ0hIC3IiuQFJhTytMY293eOPrlb3xPFH/XJrija99BTchAe74UXTjWqnDZVmmUIclmOLVWcEldKK94wXnlCgp6xPrz6QNWzud06yvYes4u74tMp5E04cx3D2yx3GcxZvhZBNHj/fT6ZiOWJzfUxKOj0tslIpVrbSZD66tPxSJl9Z+RwYLTatw8EzTw4J/lqo3dC5ztc40gHy9TmFAYxV8mmzOOI5oDdZyGTZOvlIiVLYDll4SpaHX+dFqmnZZUlLxvbIeSUkSPhwp8fDlmlca9hwOvnib7EzOfwFQSwMEFAAACAgAAAgh7C+yhK9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKxiYGluXGqqUWKhbFhsmGSrkmSoYGFmaWlcaJRimGaWaJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7N1z32pbAgAAFwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7C+yhK9tAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 1
+  showNavGraphs: 0
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 0
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -2206,6 +2206,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+      propertyPath: onTemplateOver.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
       propertyPath: OnTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -2214,7 +2218,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 292035933}
     - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+      propertyPath: onTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 292035933}
+    - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
       propertyPath: OnTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+      propertyPath: onTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
@@ -2222,11 +2234,23 @@ PrefabInstance:
       value: UpdateGraphs
       objectReference: {fileID: 0}
     - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+      propertyPath: onTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateGraphs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
       propertyPath: OnTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NavigationMng, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+      propertyPath: onTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NavigationMng, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
       propertyPath: OnTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379809053442863746, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+      propertyPath: onTemplateOver.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2242,6 +2266,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: allEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: allEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
     - target: {fileID: 8393038145049124821, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: m_Name
       value: GameManager

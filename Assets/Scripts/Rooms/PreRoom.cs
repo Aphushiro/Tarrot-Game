@@ -40,6 +40,11 @@ public class PreRoom : MonoBehaviour
 
     private void CreateNewRoom ()
     {
+        if (newName == "")
+        {
+            Destroy(gameObject);
+            return;
+        }
         GameObject newRoom = Resources.Load("Rooms/" + newName) as GameObject;
         Destroy(gameObject);
         Instantiate(newRoom, transform.position, Quaternion.identity);
