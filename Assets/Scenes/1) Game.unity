@@ -1078,6 +1078,7 @@ GameObject:
   - component: {fileID: 474659523}
   - component: {fileID: 474659522}
   - component: {fileID: 474659525}
+  - component: {fileID: 474659526}
   m_Layer: 0
   m_Name: WeaponGFX
   m_TagString: Untagged
@@ -1208,6 +1209,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.95}
   m_Size: {x: 1, y: 3.5}
   m_Direction: 0
+--- !u!114 &474659526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474659521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98da99fc86f6c3445b9aa4f1b2497104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,6 +2129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 474659522}
   delay: 0.3
+  playerDamage: 0
 --- !u!1 &2143395042
 GameObject:
   m_ObjectHideFlags: 0

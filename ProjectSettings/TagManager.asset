@@ -10,6 +10,7 @@ TagManager:
   - OverlapCheck
   - StartingRoom
   - FinalRoom
+  - Enemy
   layers:
   - Default
   - TransparentFX
