@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1721316659606110636}
   m_Layer: 0
   m_Name: Hug
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  stopDistance: 1.05
+  nextWaypointDistance: 3
+  enemyGFX: {fileID: 0}
+  force: {x: 0, y: 0}
 --- !u!50 &3031781837784154024
 Rigidbody2D:
   serializedVersion: 4

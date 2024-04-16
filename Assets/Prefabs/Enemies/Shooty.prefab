@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2042634750128147604}
   m_Layer: 0
   m_Name: Shooty
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,10 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93091f42e7e71d84eaf089492d180bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  stopDistance: 4
   retreatSpeed: 2
-  retreatDistance: 3.8
   startTimeBtwShots: 2
   bullet: {fileID: 964242766182461186, guid: 674819a61b20ac84fb8d84d0914c5fcc, type: 3}
 --- !u!58 &-6292711381639085250

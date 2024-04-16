@@ -10,14 +10,23 @@ public class WeaponParentScript : MonoBehaviour
     public float delay = 0.3f;
     private bool attackBlocked;
 
+    public float playerDamage;
+
     void Update()
     {
         // Find mousepos
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        FaceCursor(mousePos);
+        if (attackBlocked == false)
+        {
+            FaceCursor(mousePos);
+        }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
     }
 
     void FaceCursor (Vector3 target)
@@ -49,6 +58,19 @@ public class WeaponParentScript : MonoBehaviour
         attackBlocked = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (attackBlocked ) { return; }
+        transform.GetChild(0).GetComponent<CapsuleCollider2D>().enabled = true;
+
+        if (other.CompareTag("Enemy") && other.GetComponent<EnemyStats>() != null)
+        {
+            other.GetComponent<EnemyStats>().Takedamage(playerDamage);
+        }
+    }
+
+
+    // Something about activating/deactivating trigger on animationevent...
 
     void StuffOn ()
     {
