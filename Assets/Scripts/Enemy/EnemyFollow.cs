@@ -16,7 +16,7 @@ public class EnemyFollow : MonoBehaviour
 
     Path path;
     int currentWaypoint = 0;
-    //bool reachedEndOfPath = false;
+    bool reachedEndOfPath = false;
 
     [HideInInspector]
     public Vector2 force;
@@ -54,7 +54,7 @@ public class EnemyFollow : MonoBehaviour
         if (path == null)
             return;
         
-        /*
+        
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
@@ -62,7 +62,7 @@ public class EnemyFollow : MonoBehaviour
         } else
         {
             reachedEndOfPath = false;
-        }*/
+        }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         force = direction * speed * Time.deltaTime;
