@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class WeaponParentScript : MonoBehaviour
 {
@@ -11,13 +12,32 @@ public class WeaponParentScript : MonoBehaviour
 
     void Update()
     {
+        // Find mousepos
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+
+        FaceCursor(mousePos);
+
+    }
+
+    void FaceCursor (Vector3 target)
+    {
+        Vector3 diff = target - transform.position; 
+        diff.Normalize();
         
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg; 
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
     public void Attack()
     {
+        // If we're waiting for our attack cooldown
         if (attackBlocked)
             return;
+
+        // When we attack
+
+
         animator.SetTrigger("Attack");
         attackBlocked = true;
         StartCoroutine(DelayAttack());
@@ -27,5 +47,30 @@ public class WeaponParentScript : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         attackBlocked = false;
+    }
+
+
+    void StuffOn ()
+    {
+        //private WeaponParentScript weaponParent;
+
+        //private void OnEnable()
+        //{
+        //    sword.action.performed += PerformAttack;
+        //}
+
+        //private void OnDisable()
+        //{
+        //    sword.action.performed -= PerformAttack;
+        //}
+
+        //private void PerformAttack(InputAction.CallbackContext obj)
+        //{
+        //    weaponParent.Attack();
+        //}
+
+
+        
+
     }
 }

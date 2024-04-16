@@ -9,14 +9,17 @@ public class EnemyFollow : MonoBehaviour
 
     private Transform target;
 
-    public float speed = 400f;
+    public float speed;
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
 
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
+    //bool reachedEndOfPath = false;
+
+    [HideInInspector]
+    public Vector2 force;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -51,7 +54,7 @@ public class EnemyFollow : MonoBehaviour
         if (path == null)
             return;
         
-
+        /*
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
@@ -59,13 +62,12 @@ public class EnemyFollow : MonoBehaviour
         } else
         {
             reachedEndOfPath = false;
-        }
+        }*/
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        force = direction * speed * Time.deltaTime;
 
-        rb.AddForce(force);
-        Debug.Log(rb.velocity.magnitude);
+        rb.AddForce(force, ForceMode2D.Force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 

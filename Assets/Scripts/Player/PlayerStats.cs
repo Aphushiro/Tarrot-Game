@@ -12,10 +12,10 @@ public class PlayerStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
-        healthbar. SetHealth(currentHealth);
+        healthbar.SetHealth(currentHealth);
     }
 
-    void TakeDamage (float damage)
+    public void TakeDamage (float damage)
     {
         int intDmg = Mathf.FloorToInt(damage);
         if (intDmg < 1)
@@ -24,11 +24,5 @@ public class PlayerStats : MonoBehaviour
         }
         currentHealth -= intDmg;
         healthbar.SetHealth(currentHealth);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

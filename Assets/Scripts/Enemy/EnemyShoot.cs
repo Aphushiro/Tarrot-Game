@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
     //this code is based on https://www.youtube.com/watch?v=_Z1t7MNk0c4
 
-    public float speed;
-    public float stopDistance;
     public float retreatSpeed;
-    public float retreatDistance;
 
     private float timeBetweenShots;
     public float startTimeBtwShots;
 
     private Transform target;
+    EnemyFollow movement;
+    Rigidbody2D rb;
 
     [SerializeField] GameObject bullet;
 
@@ -24,24 +24,21 @@ public class EnemyShoot : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         timeBetweenShots = startTimeBtwShots;
+        movement = GetComponent<EnemyFollow>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        float playerDist = Vector2.Distance(rb.position, target.position);
+        if (playerDist < movement.nextWaypointDistance)
+        {
+            rb.AddForce(-movement.force * retreatSpeed);
+        }
+    }
+
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) > stopDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, target.position) < stopDistance && Vector2.Distance(transform.position, target.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, target.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, -retreatSpeed * Time.deltaTime);
-        }
-
         // Shoot bullets
         if (timeBetweenShots <= 0)
         {

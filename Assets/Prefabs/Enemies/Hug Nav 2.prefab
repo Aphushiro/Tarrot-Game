@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 336601074455488605}
   - component: {fileID: 2360780450446423526}
   - component: {fileID: -5368065572105344992}
+  - component: {fileID: 6384020563146154391}
+  - component: {fileID: -8463151913915236295}
   m_Layer: 0
   m_Name: Hug Nav 2
   m_TagString: Untagged
@@ -76,9 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aaca7a1b3f4ef049aa621108a85daec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
-  nextWaypointDistance: 3
+  speed: 550
+  nextWaypointDistance: 2
   enemyGFX: {fileID: 5703194601228495079}
+  force: {x: 0, y: 0}
 --- !u!58 &2360780450446423526
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -141,6 +144,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6384020563146154391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391257920098625816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c803b34bed6e4104a870a322cbb73dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 9
+  knockback: 5
+--- !u!114 &-8463151913915236295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391257920098625816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e679473474fdaf2498abab1c43656d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
 --- !u!1 &2547393244319916256
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +245,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.69543207, g: 0.8037735, b: 0.5747739, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
