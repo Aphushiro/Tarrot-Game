@@ -42,6 +42,7 @@ public class EnemyShoot : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, -retreatSpeed * Time.deltaTime);
         }
 
+        // Shoot bullets
         if (timeBetweenShots <= 0)
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
