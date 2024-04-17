@@ -47,11 +47,9 @@ public class WeaponParentScript : MonoBehaviour
             return;
 
         // When we attack
-
-
         animator.SetTrigger("Attack");
         attackBlocked = true;
-        //StartCoroutine(DelayAttack());
+        swordCollider.enabled = attackBlocked;
     }
     /*
     private IEnumerator DelayAttack()
@@ -60,13 +58,13 @@ public class WeaponParentScript : MonoBehaviour
         attackBlocked = false;
     }*/
 
-    private void OnTriggerEnter2D(Collider2D other)
+
+    public void HitEnemy (Collider2D other)
     {
-        if (attackBlocked ) { return; }
-        transform.GetChild(0).GetComponent<CapsuleCollider2D>().enabled = true;
 
         if (other.CompareTag("Enemy") && other.GetComponent<EnemyStats>() != null)
         {
+            Debug.Log(other.name);
             other.GetComponent<EnemyStats>().Takedamage(playerDamage, gameObject.transform.position);
         }
     }
@@ -78,6 +76,7 @@ public class WeaponParentScript : MonoBehaviour
         if (swap == 0)
         {
             attackBlocked = false;
+            swordCollider.enabled = attackBlocked;
         }
     }
 
