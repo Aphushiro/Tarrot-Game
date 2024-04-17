@@ -14,11 +14,11 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
         }
-        else if (pauseMenu.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        /*else if (pauseMenu.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
-        }
+        }*/
     }
 
     public void Resume()

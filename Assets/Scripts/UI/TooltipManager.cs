@@ -5,12 +5,18 @@ using TMPro;
 
 public class TooltipManager : MonoBehaviour
 {
+    //private static TooltipManager current;
+
+    //public Tooltip tooltip;
+
     public static TooltipManager _instance;
 
     public TextMeshProUGUI textComponent;
 
-    private void Awake()
+    public void Awake()
     {
+        //current = this;
+
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -20,7 +26,6 @@ public class TooltipManager : MonoBehaviour
             _instance = this;
         }
     }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +49,18 @@ public class TooltipManager : MonoBehaviour
     {
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
+        transform.position = new Vector2(-100f, -100f);
     }
+    
+    /*
+    public static void Show() 
+    {
+        current.tooltip.gameObject.SetActive(true);
+    }
+
+    public static void Hide()
+    {
+        current.tooltip.gameObject.SetActive(false);
+    }
+    */
 }
