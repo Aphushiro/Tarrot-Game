@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aaca7a1b3f4ef049aa621108a85daec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 550
+  speed: 450
   nextWaypointDistance: 2
   enemyGFX: {fileID: 5703194601228495079}
   force: {x: 0, y: 0}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c803b34bed6e4104a870a322cbb73dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9
+  damage: 20
   knockback: 5
 --- !u!114 &-8463151913915236295
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
-  knockBackAmount: 5
+  knockBackAmount: 10
 --- !u!1 &2547393244319916256
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,8 +245,8 @@ SpriteRenderer:
   m_SortingLayerID: -287338655
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.69543207, g: 0.8037735, b: 0.5747739, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d664e3be76d56004c9b336cb5b1c40c3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -11,26 +11,24 @@ public class EnemyStats : MonoBehaviour
     public float knockBackAmount = 5f;
 
 
-    public void Takedamage (float damage, Vector2 sourcePos)
+    public void Takedamage (float damage, Vector3 sourcePos)
     {
         if (damageBlocked) { return; }
-
-        health -= damage;
 
         if (health <= 0 )
         {
             Die();
         }
 
-        damageBlocked = true;
         if (gameObject.GetComponent<Rigidbody2D>() != null )
         {
+            health -= damage;
             Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
 
-            Vector2 dir = (Vector2)(transform.position - rb.transform.position).normalized * knockBackAmount;
+            Vector2 dir = (Vector2)(transform.position - sourcePos).normalized * knockBackAmount;
             rb.AddForce(dir, ForceMode2D.Impulse);
         }
-
+        damageBlocked = true;
         StartCoroutine(TookDamage());
     }
 
