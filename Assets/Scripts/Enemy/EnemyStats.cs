@@ -28,6 +28,11 @@ public class EnemyStats : MonoBehaviour
             Vector2 dir = (Vector2)(transform.position - sourcePos).normalized * knockBackAmount;
             rb.AddForce(dir, ForceMode2D.Impulse);
         }
+
+        if (gameObject.GetComponent<RedAnimation>() != null)
+        {
+            gameObject.GetComponent<RedAnimation>().ActivateRedTintFeedback();
+        }
         damageBlocked = true;
         StartCoroutine(TookDamage());
     }

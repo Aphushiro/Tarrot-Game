@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameMng : MonoBehaviour
 {
     public static GameMng Instance;
+
+    public int currentLevel = 0;
+    public List<GameObject> allBosses;
+
     public static int maxRooms;
     public int[] levelLimits;
 
@@ -55,5 +59,15 @@ public class GameMng : MonoBehaviour
         }
         availableEnemies.Add(allEnemies[nextEnemy]);
         nextEnemy++;
+    }
+
+    public GameObject GetBossForLevel ()
+    {
+        if (allBosses[currentLevel] == null)
+        {
+            return allBosses[0];
+        }
+
+        return allBosses[currentLevel];
     }
 }

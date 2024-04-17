@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -5368065572105344992}
   - component: {fileID: 6384020563146154391}
   - component: {fileID: -8463151913915236295}
+  - component: {fileID: 551676430854059213}
   m_Layer: 0
   m_Name: Hug Nav 2
   m_TagString: Enemy
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c803b34bed6e4104a870a322cbb73dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 15
   knockback: 5
 --- !u!114 &-8463151913915236295
 MonoBehaviour:
@@ -172,6 +173,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   knockBackAmount: 10
+--- !u!114 &551676430854059213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391257920098625816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853e4e191f9e02243a7f3c90632a48f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  satFadeTime: 1
+  spRend: {fileID: 0}
 --- !u!1 &2547393244319916256
 GameObject:
   m_ObjectHideFlags: 0

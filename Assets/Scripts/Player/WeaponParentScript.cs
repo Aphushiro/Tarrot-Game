@@ -64,7 +64,6 @@ public class WeaponParentScript : MonoBehaviour
 
         if (other.CompareTag("Enemy") && other.GetComponent<EnemyStats>() != null)
         {
-            Debug.Log(other.name);
             other.GetComponent<EnemyStats>().Takedamage(playerDamage, gameObject.transform.position);
         }
     }
@@ -78,29 +77,5 @@ public class WeaponParentScript : MonoBehaviour
             attackBlocked = false;
             swordCollider.enabled = attackBlocked;
         }
-    }
-
-    void StuffOn ()
-    {
-        //private WeaponParentScript weaponParent;
-
-        //private void OnEnable()
-        //{
-        //    sword.action.performed += PerformAttack;
-        //}
-
-        //private void OnDisable()
-        //{
-        //    sword.action.performed -= PerformAttack;
-        //}
-
-        //private void PerformAttack(InputAction.CallbackContext obj)
-        //{
-        //    weaponParent.Attack();
-        //}
-
-
-        
-
     }
 }

@@ -623,7 +623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &419082890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   animator: {fileID: 474659522}
   delay: 0.3
   swordCollider: {fileID: 474659525}
-  playerDamage: 6
+  playerDamage: 10
 --- !u!1 &2143395042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,13 +2426,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: allBosses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: allEnemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: allBosses.Array.data[0]
+      value: 
+      objectReference: {fileID: 6668373037161590582, guid: efaff7b20789fb549852eab44a85d38b, type: 3}
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: allEnemies.Array.data[0]
       value: 
       objectReference: {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: allEnemies.Array.data[1]
       value: 
-      objectReference: {fileID: 1391257920098625816, guid: b76969358652e1142899909b6a0e2d87, type: 3}
+      objectReference: {fileID: 6668373037161590582, guid: ef68ad3a137b18948a28f59c68ba14c4, type: 3}
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: allEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 6886795469035758181, guid: b4d4a85ba863a56478e1b9bd1c924622, type: 3}
     - target: {fileID: 8393038145049124821, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: m_Name
       value: GameManager

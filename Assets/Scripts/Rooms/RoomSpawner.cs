@@ -25,7 +25,6 @@ public class RoomSpawner : MonoBehaviour
         if (spawnTime < 0.1f)
         {
             spawnDelay = 0.2f;
-            Debug.Log("Starting room spawned");
         }
 
         Invoke("Spawn", spawnDelay);

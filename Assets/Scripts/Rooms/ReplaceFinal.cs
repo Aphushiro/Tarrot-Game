@@ -153,7 +153,6 @@ public class ReplaceFinal : MonoBehaviour
 
         // Calculate additional enemy rooms to spawn beyond dead ends.
         int notDeadEnd = amount - oneRooms.Count;
-        Debug.Log(notDeadEnd);
         enemyCount = Mathf.FloorToInt(notDeadEnd / 3);
     }
 

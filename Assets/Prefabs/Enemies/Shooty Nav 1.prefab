@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e679473474fdaf2498abab1c43656d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 20
   knockBackAmount: 10
 --- !u!1 &2547393244319916256
 GameObject:
