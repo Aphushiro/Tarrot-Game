@@ -1355,6 +1355,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98da99fc86f6c3445b9aa4f1b2497104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2081103176}
+        m_TargetAssemblyTypeName: WeaponParentScript, Assembly-CSharp
+        m_MethodName: SwitchAttackBlock
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,7 +2412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 474659522}
   delay: 0.3
-  playerDamage: 0
+  swordCollider: {fileID: 474659525}
+  playerDamage: 6
 --- !u!1 &2143395042
 GameObject:
   m_ObjectHideFlags: 0

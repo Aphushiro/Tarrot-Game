@@ -8,9 +8,10 @@ public class EnemyStats : MonoBehaviour
     float damageTimer = 1f;
 
     bool damageBlocked = false;
+    public float knockBackAmount = 5f;
 
 
-    public void Takedamage (float damage)
+    public void Takedamage (float damage, Vector2 sourcePos)
     {
         if (damageBlocked) { return; }
 
@@ -22,6 +23,14 @@ public class EnemyStats : MonoBehaviour
         }
 
         damageBlocked = true;
+        if (gameObject.GetComponent<Rigidbody2D>() != null )
+        {
+            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
+            Vector2 dir = (Vector2)(transform.position - rb.transform.position).normalized * knockBackAmount;
+            rb.AddForce(dir, ForceMode2D.Impulse);
+        }
+
         StartCoroutine(TookDamage());
     }
 

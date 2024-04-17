@@ -36,6 +36,7 @@ public class RoomTemplates : MonoBehaviour
     {
 
         // Determine when map has loaded
+        // This part might break with timescale mess
         int l = currentRooms.Count;
 
         if (curRooms != l && floorIsLoading == true)
@@ -51,10 +52,10 @@ public class RoomTemplates : MonoBehaviour
         else if (floorIsLoading == true)
         {
             // Reload floor when it has loaded, and initiate room replacement
-            
             StartCoroutine(FinishTemplates());
         }
     }
+
 
     IEnumerator FinishTemplates ()
     {

@@ -10,7 +10,9 @@ public class WeaponParentScript : MonoBehaviour
     public float delay = 0.3f;
     private bool attackBlocked;
 
+    public Collider2D swordCollider;
     public float playerDamage;
+
 
     void Update()
     {
@@ -49,14 +51,14 @@ public class WeaponParentScript : MonoBehaviour
 
         animator.SetTrigger("Attack");
         attackBlocked = true;
-        StartCoroutine(DelayAttack());
+        //StartCoroutine(DelayAttack());
     }
-
+    /*
     private IEnumerator DelayAttack()
     {
         yield return new WaitForSeconds(delay);
         attackBlocked = false;
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -65,12 +67,19 @@ public class WeaponParentScript : MonoBehaviour
 
         if (other.CompareTag("Enemy") && other.GetComponent<EnemyStats>() != null)
         {
-            other.GetComponent<EnemyStats>().Takedamage(playerDamage);
+            other.GetComponent<EnemyStats>().Takedamage(playerDamage, gameObject.transform.position);
         }
     }
 
 
     // Something about activating/deactivating trigger on animationevent...
+    public void SwitchAttackBlock (int swap)
+    {
+        if (swap == 0)
+        {
+            attackBlocked = false;
+        }
+    }
 
     void StuffOn ()
     {
