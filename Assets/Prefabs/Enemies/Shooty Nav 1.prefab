@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 2360780450446423526}
   - component: {fileID: -5368065572105344992}
   - component: {fileID: 6384020563146154391}
-  - component: {fileID: 7572443143740481985}
   - component: {fileID: -6108930831981020269}
+  - component: {fileID: 2757982239327995333}
+  - component: {fileID: 3298473012388722343}
   m_Layer: 0
   m_Name: Shooty Nav 1
   m_TagString: Enemy
@@ -159,21 +160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 9
   knockback: 5
---- !u!114 &7572443143740481985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391257920098625816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93091f42e7e71d84eaf089492d180bcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  retreatSpeed: 1.1
-  startTimeBtwShots: 2
-  bullet: {fileID: 964242766182461186, guid: 674819a61b20ac84fb8d84d0914c5fcc, type: 3}
 --- !u!114 &-6108930831981020269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +174,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   knockBackAmount: 10
+--- !u!114 &2757982239327995333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391257920098625816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4877cd6c12dac45893b9daa9384864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retreatSpeed: 1.1
+--- !u!114 &3298473012388722343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391257920098625816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321b2c3300a29b543bd2d049eab112c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwShots: 1
+  bullet: {fileID: 964242766182461186, guid: 674819a61b20ac84fb8d84d0914c5fcc, type: 3}
 --- !u!1 &2547393244319916256
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class BounceMovement : MonoBehaviour
     public float speed = 2f;
     private float constantMagnitute;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
 

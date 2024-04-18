@@ -9,21 +9,17 @@ public class EnemyShoot : MonoBehaviour
 
     public float retreatSpeed;
 
-    private float timeBetweenShots;
-    public float startTimeBtwShots;
 
     private Transform target;
     EnemyFollow movement;
     Rigidbody2D rb;
 
-    [SerializeField] GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
-        timeBetweenShots = startTimeBtwShots;
         movement = GetComponent<EnemyFollow>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -37,17 +33,5 @@ public class EnemyShoot : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // Shoot bullets
-        if (timeBetweenShots <= 0)
-        {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-            timeBetweenShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBetweenShots -= Time.deltaTime;
-        }
-    }
+    
 }

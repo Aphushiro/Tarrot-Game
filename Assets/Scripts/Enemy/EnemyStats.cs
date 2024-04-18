@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyStats : MonoBehaviour
     bool damageBlocked = false;
     public float knockBackAmount = 5f;
 
+    public UnityEvent onDeath;
 
     public void Takedamage (float damage, Vector3 sourcePos)
     {
@@ -45,6 +47,7 @@ public class EnemyStats : MonoBehaviour
 
     void Die ()
     {
+        onDeath.Invoke();
         Destroy(gameObject);
     }
 }

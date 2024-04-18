@@ -78,7 +78,7 @@ public class EnemyFollow : MonoBehaviour
 
         // Flip enemyGFX depending on direction
         
-        if (rb.velocity.x >= 0.01f)
+        if (rb.velocity.x <= 0.01f)
         {
             enemyGFX.localScale = new Vector2(-1, 1);
         } else if (rb.velocity.x >= -0.01f)

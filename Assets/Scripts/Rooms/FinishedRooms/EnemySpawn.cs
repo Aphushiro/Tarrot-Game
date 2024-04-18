@@ -46,7 +46,7 @@ public class EnemySpawn : MonoBehaviour
 
                 dist = (enemyPos - playerPos).magnitude;
             }
-            Vector2 actualPos = new Vector2(transform.position.x - enemyPos.x, transform.position.y - enemyPos.y);
+            Vector2 actualPos = new Vector2(transform.position.x + enemyPos.x, transform.position.y + enemyPos.y);
             GameObject newEnemy = Instantiate(enemyList[enemyType], actualPos, Quaternion.identity) as GameObject;
         }
     }
