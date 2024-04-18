@@ -57,7 +57,7 @@ TagManager:
   - name: Enemy
     uniqueID: 4007628641
     locked: 0
-  - name: Player & door
+  - name: Foreground + door
     uniqueID: 476469269
     locked: 0
   - name: Door
