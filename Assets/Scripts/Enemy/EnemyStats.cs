@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class EnemyStats : MonoBehaviour
 {
     public float health;
-    float damageTimer = 1f;
+    float damageTimer = .4f;
 
     bool damageBlocked = false;
     public float knockBackAmount = 5f;

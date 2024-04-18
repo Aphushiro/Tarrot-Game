@@ -22,6 +22,8 @@ public class EnemyBullet : MonoBehaviour
         // Find direction of bullet
         Vector2 dir = new Vector2(target.x - rb.position.x, target.y - rb.position.y).normalized;
         rb.AddForce(dir * bulletSpeed, ForceMode2D.Impulse);
+        rb.AddTorque(0.5f, ForceMode2D.Impulse);
+
         Destroy(gameObject, 2);
     }
 

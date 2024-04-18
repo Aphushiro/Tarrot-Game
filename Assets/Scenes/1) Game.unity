@@ -447,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 288199111}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -494,7 +494,7 @@ SpriteRenderer:
   m_SortingLayerID: 476469269
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e6ee477e65cfe241b4272524f87293e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.15
+  m_fontSize: 47.65
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1300,8 +1300,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 476469269
   m_SortingLayer: 4
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 339d34f1338f5a84fbcef333cb85973c, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 151d90635de0df7499b9dcac7b157014, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1322,8 +1322,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2081103175}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1359,8 +1359,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.95}
-  m_Size: {x: 1, y: 3.5}
+  m_Offset: {x: 0, y: 1}
+  m_Size: {x: 0.6, y: 1.7}
   m_Direction: 0
 --- !u!114 &474659526
 MonoBehaviour:
@@ -2044,7 +2044,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1146858519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,6 +2793,7 @@ GameObject:
   - component: {fileID: 1918046075}
   - component: {fileID: 1918046071}
   - component: {fileID: 1918046076}
+  - component: {fileID: 1918046077}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2893,7 +2894,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
 --- !u!114 &1918046076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,6 +2910,22 @@ MonoBehaviour:
   healthbar: {fileID: 1856783978}
   maxHealth: 100
   currentHealth: 0
+  maxTokens: 1
+  curTokens: 0
+--- !u!114 &1918046077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918046070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78962c1e76f23264c8784e05902c0cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipWithCursor:
+  - {fileID: 288199113}
 --- !u!1 &2081103174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,7 +2972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 474659522}
-  delay: 0.3
+  delay: 0.9
   swordCollider: {fileID: 474659525}
   playerDamage: 10
 --- !u!1 &2143395042
@@ -3208,15 +3225,15 @@ PrefabInstance:
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: allEnemies.Array.data[0]
       value: 
-      objectReference: {fileID: 6668373037161590582, guid: ef68ad3a137b18948a28f59c68ba14c4, type: 3}
+      objectReference: {fileID: 1391257920098625816, guid: b76969358652e1142899909b6a0e2d87, type: 3}
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: allEnemies.Array.data[1]
       value: 
-      objectReference: {fileID: 1391257920098625816, guid: b76969358652e1142899909b6a0e2d87, type: 3}
+      objectReference: {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: allEnemies.Array.data[2]
       value: 
-      objectReference: {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
+      objectReference: {fileID: 6668373037161590582, guid: ef68ad3a137b18948a28f59c68ba14c4, type: 3}
     - target: {fileID: 8393038145049124821, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: m_Name
       value: GameManager

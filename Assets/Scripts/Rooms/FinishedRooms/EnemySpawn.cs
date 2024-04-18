@@ -27,14 +27,16 @@ public class EnemySpawn : MonoBehaviour
         {
             int enemyType = Random.Range(0, enemyList.Count);
 
-            float xSize = 7f;
-            float ySize = 7f;
+            float xSize = 5f;
+            float ySize = 5f;
 
             float xPos = Random.Range(0, xSize);
             float yPos = Random.Range(0, ySize);
 
             Vector2 enemyPos = new Vector2(xPos, yPos);
-
+            
+            // This code is laggy.  Let's just limit spawn area for the sake of performance
+            /* 
             float dist = (enemyPos - playerPos).magnitude;
 
             while (dist < 1f)
@@ -46,6 +48,7 @@ public class EnemySpawn : MonoBehaviour
 
                 dist = (enemyPos - playerPos).magnitude;
             }
+            */
             Vector2 actualPos = new Vector2(transform.position.x + enemyPos.x, transform.position.y + enemyPos.y);
             GameObject newEnemy = Instantiate(enemyList[enemyType], actualPos, Quaternion.identity) as GameObject;
         }

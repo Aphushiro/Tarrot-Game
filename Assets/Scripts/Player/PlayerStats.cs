@@ -8,11 +8,15 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth = 100;
 
+    public int maxTokens = 1;
+    public int curTokens = 0;
+
     private void Start()
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetHealth(currentHealth);
+        curTokens = maxTokens;
     }
 
     public void TakeDamage (float damage)
@@ -24,5 +28,28 @@ public class PlayerStats : MonoBehaviour
         }
         currentHealth -= intDmg;
         healthbar.SetHealth(currentHealth);
+    }
+
+    public int DepositTokens (int toDep)
+    {
+        if (toDep > curTokens)
+        {
+            return 0;
+        } else
+        {
+            curTokens -= toDep;
+            return toDep;
+        }
+    }
+
+    public void RespawnPlayer ()
+    {
+        curTokens = maxTokens;
+
+    }
+
+    public void RestartPosition ()
+    {
+        transform.position = Vector2.zero;
     }
 }

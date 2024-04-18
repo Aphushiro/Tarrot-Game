@@ -21,6 +21,8 @@ public class BossSpawn : MonoBehaviour
 
     IEnumerator SpawnBoss ()
     {
+        DoorInteract doors = GetComponentInChildren<DoorInteract>();
+        doors.ForceShut();
         yield return new WaitForSeconds(iconFadeTime);
 
         // Instantiate boss
@@ -29,6 +31,8 @@ public class BossSpawn : MonoBehaviour
 
         // Cue the heckin' boss music!!!
     }
+
+
 
     private void Update()
     {

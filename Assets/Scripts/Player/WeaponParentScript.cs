@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -8,7 +9,9 @@ public class WeaponParentScript : MonoBehaviour
 {
     public Animator animator;
     public float delay = 0.3f;
+
     private bool attackBlocked;
+    private bool animDone;
 
     public Collider2D swordCollider;
     public float playerDamage;
@@ -20,7 +23,7 @@ public class WeaponParentScript : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;
 
-        if (attackBlocked == false)
+        if (animDone)
         {
             FaceCursor(mousePos);
         }
@@ -36,8 +39,11 @@ public class WeaponParentScript : MonoBehaviour
         Vector3 diff = target - transform.position; 
         diff.Normalize();
         
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg; 
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        rot_z -= 90f;
+        int low = -100, high = -250;
+        if (rot_z < low && rot_z > high) { return; }
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
     }
 
     public void Attack()
@@ -49,14 +55,16 @@ public class WeaponParentScript : MonoBehaviour
         // When we attack
         animator.SetTrigger("Attack");
         attackBlocked = true;
+        animDone = false;
         swordCollider.enabled = attackBlocked;
+        StartCoroutine(DelayAttack());
     }
-    /*
+    
     private IEnumerator DelayAttack()
     {
         yield return new WaitForSeconds(delay);
         attackBlocked = false;
-    }*/
+    }
 
 
     public void HitEnemy (Collider2D other)
@@ -74,8 +82,8 @@ public class WeaponParentScript : MonoBehaviour
     {
         if (swap == 0)
         {
-            attackBlocked = false;
-            swordCollider.enabled = attackBlocked;
+            animDone = true;
+            swordCollider.enabled = false;
         }
     }
 }
