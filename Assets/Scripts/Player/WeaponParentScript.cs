@@ -14,8 +14,13 @@ public class WeaponParentScript : MonoBehaviour
     private bool animDone;
 
     public Collider2D swordCollider;
+    float swordColOffsetX;
     public float playerDamage;
 
+    private void Start()
+    {
+        swordColOffsetX = swordCollider.offset.x;
+    }
 
     void Update()
     {
@@ -62,6 +67,18 @@ public class WeaponParentScript : MonoBehaviour
 
     public void Attack()
     {
+        // Set sword position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePos.x > transform.position.x)
+        {
+            swordCollider.offset = new Vector2(swordColOffsetX, swordCollider.offset.y);
+        }
+        else
+        {
+            swordCollider.offset = new Vector2(-swordColOffsetX, swordCollider.offset.y);
+        }
+
         // If we're waiting for our attack cooldown
         if (attackBlocked)
             return;
