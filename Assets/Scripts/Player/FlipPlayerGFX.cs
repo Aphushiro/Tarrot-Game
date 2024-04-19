@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlipPlayerGFX : MonoBehaviour
 {
     public SpriteRenderer[] flipWithCursor;
+    public Transform[] flipScaleWithCursor;
 
     void Start()
     {
@@ -27,6 +28,21 @@ public class FlipPlayerGFX : MonoBehaviour
             for (int i = 0; i < flipWithCursor.Length; i++)
             {
                 flipWithCursor[i].flipX = true;
+            }
+        }
+
+        if (mousePos.x > transform.position.x)
+        {
+            for (int i = 0; i < flipScaleWithCursor.Length; i++)
+            {
+                flipScaleWithCursor[i].localScale = new Vector3(1f, 1);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < flipScaleWithCursor.Length; i++)
+            {
+                flipScaleWithCursor[i].localScale = new Vector3(-1f, 1);
             }
         }
     }

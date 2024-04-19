@@ -42,7 +42,21 @@ public class WeaponParentScript : MonoBehaviour
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         rot_z -= 90f;
         int low = -100, high = -250;
-        if (rot_z < low && rot_z > high) { return; }
+
+        // Reposition rotation based on cursor, but snap to closest min/max
+        if (rot_z < low && rot_z > high) 
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+
+            if (mousePos.x > transform.position.x)
+            {
+                rot_z = low;
+            } else
+            {
+                rot_z = high;
+            }
+        }
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
     }
 
