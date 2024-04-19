@@ -63,3 +63,6 @@ TagManager:
   - name: Door
     uniqueID: 2930757913
     locked: 0
+  - name: Card
+    uniqueID: 1956852449
+    locked: 0
