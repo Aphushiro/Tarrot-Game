@@ -18,29 +18,15 @@ public class DoorInteract : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void PlayerInteractedWithRay()
     {
-
-        // To open door
-        if (interactable == false)
-        {
-            return;
-        }
-
-        if (other.CompareTag("Player"))
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (unlocked == true) { return; }
-                OpenDoor(requiredTokens);
-            }
-        }
+        OpenDoor(requiredTokens);
     }
 
     void OpenDoor (int reqTok)
     {
         // value == reqtok if the player has enough tokens. Otherwise it returns zero.
-        int value = FindObjectOfType<PlayerStats>().DepositTokens(reqTok);
+        int value = PlayerStats.Instance.DepositTokens(reqTok);
 
         // If the player does not have enough tokens/penticles
         if (value != reqTok)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8594026039120557363}
   - component: {fileID: 6962351490014272635}
+  - component: {fileID: 8864062688467766867}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,9 +45,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6f0f925293d65418310bb302517bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
+  allBosses:
+  - {fileID: 6668373037161590582, guid: efaff7b20789fb549852eab44a85d38b, type: 3}
   levelLimits: 0a000000
   allEnemies:
+  - {fileID: 1391257920098625816, guid: b76969358652e1142899909b6a0e2d87, type: 3}
+  - {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
   - {fileID: 6668373037161590582, guid: ef68ad3a137b18948a28f59c68ba14c4, type: 3}
-  - {fileID: 6886795469035758181, guid: b4d4a85ba863a56478e1b9bd1c924622, type: 3}
   availableEnemies: []
   waveSize: 4
+  maxPentacleForDoor: 
+--- !u!114 &8864062688467766867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393038145049124821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f794f2403aa5140b20774a1c774a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  maxHealth: 100
+  currentHealth: 100
+  maxTokens: 1
+  curTokens: 0

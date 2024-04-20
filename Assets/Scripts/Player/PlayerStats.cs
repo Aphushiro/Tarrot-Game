@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static PlayerStats Instance;
+
     public HealthBar healthbar;
     public int maxHealth = 100;
     public int currentHealth = 100;
 
+    // Stat upgrades
+    WeaponParentScript wpn;
+
     public int maxTokens = 1;
     public int curTokens = 0;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {

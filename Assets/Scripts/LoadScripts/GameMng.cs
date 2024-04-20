@@ -12,10 +12,14 @@ public class GameMng : MonoBehaviour
     public static int maxRooms;
     public int[] levelLimits;
 
+    // Enemy settings for floor
     public List<GameObject> allEnemies;
     public List<GameObject> availableEnemies;
     int nextEnemy = 0;
     public int waveSize = 4;
+
+    // Treasure per floor
+    public int[] maxPentacleForDoor;
 
     void Awake()
     {
@@ -43,6 +47,14 @@ public class GameMng : MonoBehaviour
             availableEnemies.Add(allEnemies[nextEnemy]);
             nextEnemy++;
         }
+    }
+
+    public int GetPentacleForDoor()
+    {
+        int max = maxPentacleForDoor[currentLevel];
+        int pForDoor = Random.Range(1, max);
+        Debug.Log("Door cost: " + pForDoor);
+        return pForDoor;
     }
 
     public void NextLevel ()

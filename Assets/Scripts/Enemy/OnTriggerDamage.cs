@@ -21,8 +21,7 @@ public class OnTriggerDamage : MonoBehaviour
         if (other.transform.CompareTag("Player") && damagetimer <= 0f)
         {
 
-            PlayerStats player = other.transform.GetComponent<PlayerStats>();
-            player.TakeDamage(damage);
+            PlayerStats.Instance.TakeDamage(damage);
             damagetimer += 1f;
         }
     }

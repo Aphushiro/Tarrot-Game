@@ -564,6 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131057964}
+  - component: {fileID: 131057965}
   m_Layer: 0
   m_Name: PlayerParent
   m_TagString: Untagged
@@ -587,6 +588,19 @@ Transform:
   - {fileID: 288199112}
   m_Father: {fileID: 1918046074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131057965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131057963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea70d0a2dd6d9d14d8d284b12157bd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayLength: 5
 --- !u!1 &271959129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,7 +3985,6 @@ GameObject:
   - component: {fileID: 1918046072}
   - component: {fileID: 1918046075}
   - component: {fileID: 1918046071}
-  - component: {fileID: 1918046076}
   - component: {fileID: 1918046077}
   m_Layer: 0
   m_Name: Player
@@ -4074,23 +4087,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.55}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1918046076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918046070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1f794f2403aa5140b20774a1c774a4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbar: {fileID: 1856783978}
-  maxHealth: 100
-  currentHealth: 0
-  maxTokens: 1
-  curTokens: 0
 --- !u!114 &1918046077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4567,29 +4563,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
-      propertyPath: allBosses.Array.size
+      propertyPath: maxPentacleForDoor.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
-      propertyPath: allEnemies.Array.size
-      value: 3
+      propertyPath: maxPentacleForDoor.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
-      propertyPath: allBosses.Array.data[0]
-      value: 
-      objectReference: {fileID: 6668373037161590582, guid: efaff7b20789fb549852eab44a85d38b, type: 3}
-    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
-      propertyPath: allEnemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 1391257920098625816, guid: b76969358652e1142899909b6a0e2d87, type: 3}
-    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
-      propertyPath: allEnemies.Array.data[1]
-      value: 
-      objectReference: {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
-    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
-      propertyPath: allEnemies.Array.data[2]
-      value: 
-      objectReference: {fileID: 6668373037161590582, guid: ef68ad3a137b18948a28f59c68ba14c4, type: 3}
     - target: {fileID: 8393038145049124821, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4634,6 +4614,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8864062688467766867, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 1856783978}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
