@@ -26,7 +26,7 @@ public class DoorInteraction : MonoBehaviour
     void CheckAndOpenDoor()
     {
         Vector2 dir = (Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        Debug.Log(dir);
+        //Debug.Log(dir);
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, rayLength, includeOnly);
 
