@@ -9,10 +9,12 @@ public class CardSelection : MonoBehaviour
     [SerializeField] GameObject cardScreen;
 
     public List<Card> deck = new List<Card>();
+    public List<Card> discardPile = new List<Card>();
     public Transform[] cardSlots;
     public bool[] availableCardSlots;
 
     public TextMeshProUGUI deckSizeText;
+    public TextMeshProUGUI discardPileText;
 
     public void DrawCard()
     {
@@ -25,7 +27,11 @@ public class CardSelection : MonoBehaviour
                 if (availableCardSlots[i] == true)
                 {
                     randCard.gameObject.SetActive(true);
+                    randCard.handIndex = i;
+
                     randCard.transform.position = cardSlots[i].position;
+                    randCard.hasBeenPlayed = false;
+
                     availableCardSlots[i] = false;
                     deck.Remove(randCard);
                     return;
@@ -34,16 +40,23 @@ public class CardSelection : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Shuffle()
     {
-        
+        if (discardPile.Count >= 1)
+        {
+            foreach (Card card in discardPile)
+            {
+                deck.Add(card);
+            }
+            discardPile.Clear();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //deckSizeText.text = deck.Count.ToString();
+        deckSizeText.text = deck.Count.ToString();
+        discardPileText.text = discardPile.Count.ToString();
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
