@@ -32,6 +32,7 @@ public class DoorInteraction : MonoBehaviour
 
         Debug.DrawRay(transform.position, dir*rayLength, Color.red, 1f);
 
+
         if (hit.collider != null)
         {
             if (hit.collider.transform.GetComponent<DoorInteract>() != null)

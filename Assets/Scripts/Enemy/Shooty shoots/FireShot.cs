@@ -32,6 +32,8 @@ public class FireShot : MonoBehaviour
         }
     }
 
+
+
     public void SetBulletSpawnPos (Vector2 newPos)
     {
         bulletSpawnPos = newPos;
