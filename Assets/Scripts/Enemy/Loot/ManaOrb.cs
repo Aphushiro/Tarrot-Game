@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ManaOrb : MonoBehaviour
 {
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.transform.CompareTag("Player"))
         {
             PlayerStats.Instance.GainMana(0.03f);
+            Destroy(gameObject);
         }
     }
 }

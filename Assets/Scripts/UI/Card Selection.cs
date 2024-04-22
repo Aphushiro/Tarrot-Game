@@ -42,13 +42,21 @@ public class CardSelection : MonoBehaviour
 
     public void Shuffle()
     {
-        if (discardPile.Count >= 1)
+        if (PlayerStats.Instance.ExpendMana(1))
+        {
+            return;
+        }
+        if (discardPile.Count >= 0)
         {
             foreach (Card card in discardPile)
             {
                 deck.Add(card);
             }
             discardPile.Clear();
+
+            Invoke("DrawCard", 1f);
+            Invoke("DrawCard", 1f);
+            Invoke("DrawCard", 1f);
         }
     }
 
