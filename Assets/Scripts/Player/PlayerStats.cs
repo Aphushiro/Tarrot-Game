@@ -62,8 +62,8 @@ public class PlayerStats : MonoBehaviour
         {
             return false;
         }
-        currentMana += toExpend;
-        currentMana += Mathf.Clamp(currentMana, 0, maxMana);
+        currentMana -= toExpend;
+        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
         cupManaBar.SetMana(currentMana);
         return true;
     }
