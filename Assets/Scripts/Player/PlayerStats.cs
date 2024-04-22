@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
 
     public HealthBar healthbar;
     public CupManaBar cupManaBar;
+    public PentacleVis pentacleVis;
 
     public int maxHealth = 100;
     public int currentHealth = 100;
@@ -18,8 +19,8 @@ public class PlayerStats : MonoBehaviour
 
     WeaponParentScript wpn;
 
-    public int maxTokens = 1;
-    public int curTokens = 0;
+    public int maxPentacles = 1;
+    public int curPentacles = 0;
 
     void Awake()
     {
@@ -45,7 +46,8 @@ public class PlayerStats : MonoBehaviour
         currentMana = cupManaBar.slider.value;
         cupManaBar.SetMana(cupManaBar.slider.value);
 
-        curTokens = maxTokens;
+        curPentacles = maxPentacles;
+        pentacleVis.UpdatePentacles(curPentacles);
     }
 
     public void GainMana (float toGain)
@@ -79,22 +81,32 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetHealth(currentHealth);
     }
 
-    public int DepositTokens (int toDep)
+    public int DepositPentacles (int toDep)
     {
-        if (toDep > curTokens)
+        if (toDep > curPentacles)
         {
             return 0;
         } else
         {
-            curTokens -= toDep;
+            curPentacles -= toDep;
+            pentacleVis.UpdatePentacles(curPentacles);
             return toDep;
         }
+    }
+    public void ResetPentacles ()
+    {
+        curPentacles = maxPentacles;
+        pentacleVis.UpdatePentacles(curPentacles);
+    }
+
+    public void AddMaxPentacles ()
+    {
+        maxPentacles++;
     }
 
     public void RespawnPlayer ()
     {
-        curTokens = maxTokens;
-
+        ResetPentacles();
     }
 
     public void RestartPosition ()
