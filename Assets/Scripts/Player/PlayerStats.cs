@@ -50,6 +50,48 @@ public class PlayerStats : MonoBehaviour
         pentacleVis.UpdatePentacles(curPentacles);
     }
 
+    public void SnapshotPlayerStats (int time)
+    {
+        int mH = maxHealth;
+        int cH = currentHealth;
+
+        float mM = maxMana;
+        float cM = currentMana;
+
+        int maxP = maxPentacles;
+        int curP = curPentacles;
+
+        float wepDmg = wpn.swordDamage;
+        float wepDel = wpn.swordDelay;
+
+        float wanDmg = wpn.wandDamage;
+        float wanDel = wpn.wandDelay;
+
+        StartCoroutine(ResetPlayerStats(time, mH, cH, mM, cM, maxP, curP, wepDmg, wepDel, wanDmg, wanDel));
+    }
+
+
+
+    private IEnumerator ResetPlayerStats (int sec, int mH, int cH, float mM, float cM, int maxP, int curP, float wepDmg, float wepDel, float wanDmg, float wanDel)
+    {
+        yield return new WaitForSeconds (sec);
+
+        maxHealth = mH;
+        currentHealth = cH;
+
+        currentMana = cM;
+        maxMana = mM;
+
+        maxPentacles = maxP;
+        curPentacles = curP;
+
+        wpn.swordDamage = wepDmg;
+        wpn.swordDelay = wepDel;
+
+        wpn.wandDamage = wanDmg;
+        wpn.wandDelay = wanDel;
+    }
+
     public void GainMana (float toGain)
     {
         currentMana += toGain;

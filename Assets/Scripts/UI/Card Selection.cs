@@ -8,6 +8,9 @@ public class CardSelection : MonoBehaviour
 {
     [SerializeField] GameObject cardScreen;
 
+    bool cardScreenEnabled = false;
+
+
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
     public Transform[] cardSlots;
@@ -68,8 +71,17 @@ public class CardSelection : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            cardScreen.SetActive(true);
-            Time.timeScale = 0f;
+            cardScreenEnabled = !cardScreenEnabled;
+
+            cardScreen.SetActive(cardScreenEnabled);
+
+            if (cardScreenEnabled == true)
+            {
+                Time.timeScale = 0f;
+            } else
+            {
+                Time.timeScale = 1f;
+            }
         }
     }
 }
