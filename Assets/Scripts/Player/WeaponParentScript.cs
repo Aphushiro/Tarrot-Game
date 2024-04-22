@@ -7,15 +7,22 @@ using static UnityEngine.GraphicsBuffer;
 
 public class WeaponParentScript : MonoBehaviour
 {
+    public Sprite[] weaponSprites;
+    public GameObject wandBolt;
+
     public Animator animator;
-    public float delay = 0.3f;
+    public float swordDelay = 0.35f;
 
     private bool attackBlocked;
     private bool animDone;
 
     public Collider2D swordCollider;
     float swordColOffsetX;
-    public float playerDamage;
+    public float swordDamage;
+
+    // Wand stats
+    public float wandDamage;
+    public float wandDelay = 0.5f;
 
     private void Start()
     {
@@ -35,7 +42,7 @@ public class WeaponParentScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Attack();
+            AttackSword();
         }
     }
 
@@ -65,7 +72,7 @@ public class WeaponParentScript : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z);
     }
 
-    public void Attack()
+    public void AttackSword()
     {
         // Set sword position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -93,20 +100,21 @@ public class WeaponParentScript : MonoBehaviour
     
     private IEnumerator DelayAttack()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(swordDelay);
         attackBlocked = false;
     }
 
-
+    // Hitting the enemy with the sword collider
     public void HitEnemy (Collider2D other)
     {
 
         if (other.CompareTag("Enemy") && other.GetComponent<EnemyStats>() != null)
         {
-            other.GetComponent<EnemyStats>().Takedamage(playerDamage, gameObject.transform.position);
+            other.GetComponent<EnemyStats>().Takedamage(swordDamage, gameObject.transform.position);
         }
     }
 
+    
 
     // Something about activating/deactivating trigger on animationevent...
     public void SwitchAttackBlock (int swap)

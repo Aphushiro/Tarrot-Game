@@ -28,9 +28,39 @@ public class Card : MonoBehaviour
         }
     }
 
-    /*private void MoveToDiscardPile()
+    public void Fool()
     {
-        cs.discardPile.Add(this);
-        gameObject.SetActive(false);
-    }*/
+        //Spawn mana orbs.
+        Debug.Log("The fool");
+    }
+
+    public void Magician()
+    {
+        //Your wand attacks can pierce for 10 seconds.
+        Debug.Log("Magician");
+    }
+
+    public void HighPriestess()
+    {
+        //You heal 50% of your max HP.
+        Debug.Log("High Priestess");
+    }
+
+    public void Empress()
+    {
+        //Enemies’ movement and attacks are significantly slowed for 10 seconds.
+        Debug.Log("Empress");
+    }
+
+    public void Emperor()
+    {
+        //You deal more damage and attack rate.
+        Debug.Log("Emperor");
+    }
+
+    public void Hierophant()
+    {
+        //You push all enemies away
+        Debug.Log("Hierophant");
+    }
 }
