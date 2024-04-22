@@ -20,6 +20,7 @@ public class DoorInteract : MonoBehaviour
 
     public void PlayerInteractedWithRay()
     {
+        if (unlocked) { return; };
         OpenDoor(requiredTokens);
     }
 

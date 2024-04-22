@@ -7,10 +7,11 @@ public class GameMng : MonoBehaviour
     public static GameMng Instance;
 
     public int currentLevel = 0;
-    public List<GameObject> allBosses;
-
     public static int maxRooms;
     public int[] levelLimits;
+
+    // Boss list
+    public List<GameObject> allBosses;
 
     // Enemy settings for floor
     public List<GameObject> allEnemies;
@@ -20,6 +21,11 @@ public class GameMng : MonoBehaviour
 
     // Treasure per floor
     public int[] maxPentacleForDoor;
+
+    // Treasure list
+    public GameObject StatUpgradePrefab;
+    public GameObject tarotCardPickupPrefab;
+
 
     void Awake()
     {
@@ -60,6 +66,7 @@ public class GameMng : MonoBehaviour
     public void NextLevel ()
     {
         AddEnemy();
+        waveSize += 2;
     }
 
     public void AddEnemy ()
@@ -81,5 +88,10 @@ public class GameMng : MonoBehaviour
         }
 
         return allBosses[currentLevel];
+    }
+
+    public void GetTreasure()
+    {
+        
     }
 }

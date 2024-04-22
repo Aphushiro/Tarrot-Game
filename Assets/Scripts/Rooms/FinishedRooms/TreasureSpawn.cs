@@ -13,10 +13,10 @@ public class TreasureSpawn : MonoBehaviour
     {
         gameMng = GameMng.Instance;
         door = transform.GetComponentInChildren<DoorInteract>();
-        StartCoroutine("SetupRoom");
+        StartCoroutine(SetupTreasureRoom());
     }
 
-    IEnumerator SetupRoom ()
+    IEnumerator SetupTreasureRoom ()
     {
         yield return new WaitForSeconds(0.1f);
         door.requiredTokens = gameMng.GetPentacleForDoor();

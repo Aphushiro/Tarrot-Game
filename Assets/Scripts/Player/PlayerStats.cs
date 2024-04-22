@@ -22,6 +22,9 @@ public class PlayerStats : MonoBehaviour
     public int maxPentacles = 1;
     public int curPentacles = 0;
 
+    // Tarot upgrades
+    public bool wandOrbsPierce = false;
+
     void Awake()
     {
         DontDestroyOnLoad(this);

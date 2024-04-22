@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e679473474fdaf2498abab1c43656d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 120
   knockBackAmount: 0
   onDeath:
     m_PersistentCalls:
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  speed: 5
+  speed: 8
 --- !u!114 &-6918918541211036057
 MonoBehaviour:
   m_ObjectHideFlags: 0

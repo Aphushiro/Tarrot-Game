@@ -2067,7 +2067,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474659521}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -3557,7 +3557,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3958,7 +3958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1109607115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7169,12 +7169,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b14d147d30a735441b44450b2de68fd8, type: 3}
   - {fileID: 21300000, guid: 27145683986ae0846abdc93ea2b03f56, type: 3}
   wandBolt: {fileID: 738294171816524286, guid: 73174e9cdca820248a4aa9ffac3ef18a, type: 3}
+  weaponRenderer: {fileID: 0}
   animator: {fileID: 474659522}
   swordDelay: 0.3
   swordCollider: {fileID: 474659525}
-  swordDamage: 0
-  wandDamage: 0
-  wandDelay: 0
+  swordDamage: 10
+  wandDamage: 10
+  wandDelay: 0.5
 --- !u!1 &2102207416
 GameObject:
   m_ObjectHideFlags: 0
@@ -7992,6 +7993,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da5dbce2362ea34d9f3edb5f06b5cef, type: 3}
+--- !u!1001 &5250002132087100275
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06342739
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.168848
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5680637
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905608443682424638, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879575253821732712, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
+      propertyPath: m_Name
+      value: TarotCardPrefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
 --- !u!1001 &8431011583339347392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8000,6 +8058,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: levelLimits.Array.data[0]
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6962351490014272635, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
       propertyPath: maxPentacleForDoor.Array.size
       value: 1
@@ -8080,3 +8142,4 @@ SceneRoots:
   - {fileID: 1012944733}
   - {fileID: 1785965782}
   - {fileID: 1918046074}
+  - {fileID: 5250002132087100275}

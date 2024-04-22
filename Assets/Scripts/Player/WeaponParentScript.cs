@@ -2,19 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 using static UnityEngine.GraphicsBuffer;
 
 public class WeaponParentScript : MonoBehaviour
 {
     public Sprite[] weaponSprites;
     public GameObject wandBolt;
+    public SpriteRenderer weaponRenderer;
 
     public Animator animator;
     public float swordDelay = 0.35f;
 
     private bool attackBlocked;
-    private bool animDone;
+    private bool animDone = true;
 
     public Collider2D swordCollider;
     float swordColOffsetX;
@@ -27,6 +30,7 @@ public class WeaponParentScript : MonoBehaviour
     private void Start()
     {
         swordColOffsetX = swordCollider.offset.x;
+        weaponRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -43,6 +47,11 @@ public class WeaponParentScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             AttackSword();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            WandFire();
         }
     }
 
@@ -90,17 +99,20 @@ public class WeaponParentScript : MonoBehaviour
         if (attackBlocked)
             return;
 
+        // Swap to sword sprite
+        weaponRenderer.sprite = weaponSprites[0];
+
         // When we attack
         animator.SetTrigger("Attack");
         attackBlocked = true;
         animDone = false;
         swordCollider.enabled = attackBlocked;
-        StartCoroutine(DelayAttack());
+        StartCoroutine(DelayAttack(swordDelay));
     }
     
-    private IEnumerator DelayAttack()
+    private IEnumerator DelayAttack(float seconds)
     {
-        yield return new WaitForSeconds(swordDelay);
+        yield return new WaitForSeconds(seconds);
         attackBlocked = false;
     }
 
@@ -114,7 +126,33 @@ public class WeaponParentScript : MonoBehaviour
         }
     }
 
-    
+    public void WandFire ()
+    {
+
+        if (attackBlocked)
+            return;
+
+        // Swap to sword sprite
+        weaponRenderer.sprite = weaponSprites[1];
+
+        // When we attack
+        animator.SetTrigger("WandFire");
+        attackBlocked = true;
+        animDone = false;
+
+        // Instantiate and fire bolt
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+
+        Vector2 boltPos = transform.position + (mousePos - transform.position).normalized;
+        Vector2 boltForce = (mousePos - transform.position).normalized;
+
+        GameObject orb = Instantiate(wandBolt, boltPos, Quaternion.identity);
+        orb.GetComponent<PlayerOrb>().damage = wandDamage;
+        orb.GetComponent<Rigidbody2D>().AddForce(boltForce * 5f, ForceMode2D.Impulse);
+
+        StartCoroutine(DelayAttack(wandDelay));
+    }
 
     // Something about activating/deactivating trigger on animationevent...
     public void SwitchAttackBlock (int swap)
