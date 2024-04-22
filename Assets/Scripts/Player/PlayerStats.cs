@@ -52,11 +52,16 @@ public class PlayerStats : MonoBehaviour
         cupManaBar.SetMana(currentMana);
     }
 
-    public void ExpendMana (float toExpend)
+    public bool ExpendMana (float toExpend)
     {
+        if (toExpend > currentMana)
+        {
+            return false;
+        }
         currentMana += toExpend;
         currentMana += Mathf.Clamp(currentMana, 0, maxMana);
         cupManaBar.SetMana(currentMana);
+        return true;
     }
 
     public void TakeDamage (float damage)
