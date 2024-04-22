@@ -26,7 +26,7 @@ public class DoorInteract : MonoBehaviour
     void OpenDoor (int reqTok)
     {
         // value == reqtok if the player has enough tokens. Otherwise it returns zero.
-        int value = PlayerStats.Instance.DepositTokens(reqTok);
+        int value = PlayerStats.Instance.DepositPentacles(reqTok);
 
         // If the player does not have enough tokens/penticles
         if (value != reqTok)
