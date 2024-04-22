@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: e679473474fdaf2498abab1c43656d92
+guid: 81c9ed429a23d0449882f4f406475d42
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - manaOrbObj: {fileID: 2420996528633662315, guid: db8319e3497726948942061489c730f0, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

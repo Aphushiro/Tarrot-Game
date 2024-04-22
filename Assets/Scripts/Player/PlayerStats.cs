@@ -7,10 +7,15 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats Instance;
 
     public HealthBar healthbar;
+    public CupManaBar cupManaBar;
+
     public int maxHealth = 100;
     public int currentHealth = 100;
 
     // Stat upgrades
+    public float currentMana = 0f;
+    public float maxMana = 1f;
+
     WeaponParentScript wpn;
 
     public int maxTokens = 1;
@@ -35,7 +40,23 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetHealth(currentHealth);
+
+        cupManaBar.SetMaxMana(maxMana);
         curTokens = maxTokens;
+    }
+
+    public void GainMana (float toGain)
+    {
+        currentMana += toGain;
+        currentMana += Mathf.Clamp(currentMana, 0, maxMana);
+        cupManaBar.SetMana(currentMana);
+    }
+
+    public void ExpendMana (float toExpend)
+    {
+        currentMana += toExpend;
+        currentMana += Mathf.Clamp(currentMana, 0, maxMana);
+        cupManaBar.SetMana(currentMana);
     }
 
     public void TakeDamage (float damage)

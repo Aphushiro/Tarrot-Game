@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 476469269
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d664e3be76d56004c9b336cb5b1c40c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,11 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e679473474fdaf2498abab1c43656d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 11
   knockBackAmount: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  manaOrbObj: {fileID: 2420996528633662315, guid: db8319e3497726948942061489c730f0, type: 3}
+  manaToDrop: 2
 --- !u!114 &3906208814823205385
 MonoBehaviour:
   m_ObjectHideFlags: 0
