@@ -42,7 +42,7 @@ public class CardSelection : MonoBehaviour
 
     public void Shuffle()
     {
-        if (PlayerStats.Instance.ExpendMana(1))
+        if (PlayerStats.Instance.ExpendMana(1) == false)
         {
             return;
         }
@@ -54,9 +54,9 @@ public class CardSelection : MonoBehaviour
             }
             discardPile.Clear();
 
-            Invoke("DrawCard", 1f);
-            Invoke("DrawCard", 1f);
-            Invoke("DrawCard", 1f);
+            DrawCard();
+            DrawCard();
+            DrawCard();
         }
     }
 
