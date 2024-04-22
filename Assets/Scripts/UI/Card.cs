@@ -15,20 +15,22 @@ public class Card : MonoBehaviour
         cs = FindObjectOfType<CardSelection>();
     }
 
-    private void OnMouseDown()
+    public void DiscardCard()
     {
         if (hasBeenPlayed == false)
         {
             transform.position += Vector3.up * 5;
             hasBeenPlayed = true;
             cs.availableCardSlots[handIndex] = true;
-            Invoke("MoveToDiscardPile", 2f);
+            //Invoke("MoveToDiscardPile", 2f);
+            cs.discardPile.Add(this);
+            gameObject.SetActive(false);
         }
     }
 
-    private void moveToDiscardPile()
+    /*private void MoveToDiscardPile()
     {
         cs.discardPile.Add(this);
         gameObject.SetActive(false);
-    }
+    }*/
 }
