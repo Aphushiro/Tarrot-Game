@@ -60,7 +60,7 @@ public class EnemyStats : MonoBehaviour
             float ranY = Mathf.Cos(randomDir);
             Vector2 dir = new Vector2(ranX, ranY).normalized;
 
-            orb.GetComponent<Rigidbody2D>().AddForce(dir * 2f);
+            orb.GetComponent<Rigidbody2D>().AddForce(dir * 4f, ForceMode2D.Impulse);
         }
     }
 

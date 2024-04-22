@@ -42,13 +42,17 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetHealth(currentHealth);
 
         cupManaBar.SetMaxMana(maxMana);
+        currentMana = cupManaBar.slider.value;
+        cupManaBar.SetMana(cupManaBar.slider.value);
+
         curTokens = maxTokens;
     }
 
     public void GainMana (float toGain)
     {
         currentMana += toGain;
-        currentMana += Mathf.Clamp(currentMana, 0, maxMana);
+        currentMana = Mathf.Clamp(currentMana, 0, maxMana);
+        Debug.Log(currentMana);
         cupManaBar.SetMana(currentMana);
     }
 

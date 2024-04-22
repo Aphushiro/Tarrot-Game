@@ -3094,7 +3094,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3703,6 +3703,7 @@ GameObject:
   - component: {fileID: 1469406764}
   - component: {fileID: 1469406763}
   - component: {fileID: 1469406762}
+  - component: {fileID: 1469406765}
   m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
@@ -3781,6 +3782,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469406760}
   m_CullTransparentMesh: 1
+--- !u!114 &1469406765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469406760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7f0529bccb9b3429c33648051b0f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 905373989}
 --- !u!1 &1494309838
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,6 +6323,10 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1856783978}
+    - target: {fileID: 8864062688467766867, guid: 75cebdb4665a91b4295f9aa7cd3b9c74, type: 3}
+      propertyPath: cupManaBar
+      value: 
+      objectReference: {fileID: 1469406765}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
