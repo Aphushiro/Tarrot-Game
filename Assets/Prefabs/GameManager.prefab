@@ -46,16 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  levelLimits: 06000000
   allBosses:
   - {fileID: 6668373037161590582, guid: efaff7b20789fb549852eab44a85d38b, type: 3}
-  levelLimits: 0a000000
   allEnemies:
   - {fileID: 1391257920098625816, guid: b76969358652e1142899909b6a0e2d87, type: 3}
   - {fileID: 1391257920098625816, guid: a1177962f3cd1e244a9cfa1bb6e09c0d, type: 3}
   - {fileID: 6668373037161590582, guid: ef68ad3a137b18948a28f59c68ba14c4, type: 3}
   availableEnemies: []
   waveSize: 4
-  maxPentacleForDoor: 
+  maxPentacleForDoor: 01000000
+  StatUpgradePrefab: {fileID: 4879575253821732712, guid: 8f13d817ad739ed49ae43e296fe53e0d, type: 3}
+  tarotCardPickupPrefab: {fileID: 4879575253821732712, guid: 31c3cb335e0dd9d4a8a68960078e9406, type: 3}
 --- !u!114 &8864062688467766867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +71,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 0}
+  cupManaBar: {fileID: 0}
+  pentacleVis: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
-  maxTokens: 1
-  curTokens: 0
+  currentMana: 0
+  maxMana: 1
+  maxPentacles: 1
+  curPentacles: 0
+  wandOrbsPierce: 0

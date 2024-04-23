@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
 {
+    public UnityEvent OnDeath;
     public static PlayerStats Instance;
 
     public HealthBar healthbar;
@@ -18,12 +20,27 @@ public class PlayerStats : MonoBehaviour
     public float maxMana = 1f;
 
     WeaponParentScript wpn;
+    float swordModifier = 1.0f;
+    float swordUpAmount = 0.1f;
+
+    float wandModifier = 1.0f;
+    float wandUpAmount = 0.1f;
 
     public int maxPentacles = 1;
     public int curPentacles = 0;
 
+    // Stat upgrades count
+    int cupUps = 0;
+    int swordUps = 0;
+    int pentacleUps = 0;
+    int wandUps = 0;
+
     // Tarot upgrades
-    public bool wandOrbsPierce = false;
+    public bool wandOrbsPierce = false;         // Magician
+    float highPriestessHealPercent = 0.5f;      // High Priestess
+    float empressSlowPercent = 0.1f;            // The Empress
+    float emperorSwordDmgBuffPercent = 0.5f;    // The Emperor
+    float hierophantPushAmount = 50f;           // The Hierophant
 
     void Awake()
     {
@@ -41,6 +58,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        wpn = FindObjectOfType<WeaponParentScript>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
         healthbar.SetHealth(currentHealth);
@@ -73,8 +91,6 @@ public class PlayerStats : MonoBehaviour
         StartCoroutine(ResetPlayerStats(time, mH, cH, mM, cM, maxP, curP, wepDmg, wepDel, wanDmg, wanDel));
     }
 
-
-
     private IEnumerator ResetPlayerStats (int sec, int mH, int cH, float mM, float cM, int maxP, int curP, float wepDmg, float wepDel, float wanDmg, float wanDel)
     {
         yield return new WaitForSeconds (sec);
@@ -93,6 +109,8 @@ public class PlayerStats : MonoBehaviour
 
         wpn.wandDamage = wanDmg;
         wpn.wandDelay = wanDel;
+
+        UpdatePostStatUpgrade();
     }
 
     public void GainMana (float toGain)
@@ -126,6 +144,11 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetHealth(currentHealth);
     }
 
+    void Die ()
+    {
+
+    }
+
     public int DepositPentacles (int toDep)
     {
         if (toDep > curPentacles)
@@ -149,6 +172,58 @@ public class PlayerStats : MonoBehaviour
         maxPentacles++;
     }
 
+    public bool UpgradeStat(int toUpgrade)
+    {
+        switch (toUpgrade)
+        {
+            case 0:
+                if (cupUps == 13) { return false; }
+                cupUps++; 
+                UpdatePostStatUpgrade();
+                return true;
+
+            case 1:
+                if (swordUps == 13) { return false; }
+                swordUps++;
+                UpdatePostStatUpgrade();
+                return true;
+
+            case 2:
+                if (pentacleUps == 13) { return false; }
+                pentacleUps++;
+                UpdatePostStatUpgrade();
+                return true;
+
+            case 3:
+                if (wandUps == 13) { return false; }
+                wandUps++;
+                UpdatePostStatUpgrade();
+                return true;
+
+            default:
+                return false;
+        }
+
+    }
+
+    public void UpdatePostStatUpgrade ()
+    {
+        // Mana
+        maxMana = 1 + cupUps;
+        cupManaBar.SetMaxMana(maxMana);
+        // Sword
+        swordModifier = 1.0f + (swordUpAmount * swordUps);
+        wpn.swordDamage = wpn.baseDamage * swordModifier;
+        // Pentacles
+        maxPentacles = 1 + pentacleUps;
+        pentacleVis.UpdatePentacles(curPentacles);
+        // Wand
+        wandModifier = 1.0f + (wandUpAmount * wandUps);
+        wpn.wandDamage = wpn.baseDamage * wandModifier;
+    }
+
+
+    // Death or other meta stuff ------
     public void RespawnPlayer ()
     {
         ResetPentacles();

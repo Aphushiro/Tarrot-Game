@@ -19,6 +19,7 @@ public class WeaponParentScript : MonoBehaviour
     private bool attackBlocked;
     private bool animDone = true;
 
+    // Sword stats
     public Collider2D swordCollider;
     float swordColOffsetX;
     public float swordDamage;
@@ -27,10 +28,15 @@ public class WeaponParentScript : MonoBehaviour
     public float wandDamage;
     public float wandDelay = 0.5f;
 
+    // Weapon general
+    public float baseDamage = 10f;
+
     private void Start()
     {
         swordColOffsetX = swordCollider.offset.x;
         weaponRenderer = GetComponentInChildren<SpriteRenderer>();
+        swordDamage = baseDamage;
+        wandDamage = baseDamage;
     }
 
     void Update()

@@ -26,6 +26,9 @@ public class GameMng : MonoBehaviour
     public GameObject StatUpgradePrefab;
     public GameObject tarotCardPickupPrefab;
 
+    //This thing is impossible to not hard code right now, but please expand for the future
+    int tarotCardsAvailable = 1;
+
 
     void Awake()
     {
@@ -90,8 +93,15 @@ public class GameMng : MonoBehaviour
         return allBosses[currentLevel];
     }
 
-    public void GetTreasure()
+    public GameObject GetTreasure()
     {
-        
+        GameObject[] toGive = new GameObject[2] { StatUpgradePrefab, tarotCardPickupPrefab };
+        int treasure = 0;
+        if (tarotCardsAvailable > 0)
+        {
+            treasure = Random.Range(0, toGive.Length);
+            tarotCardsAvailable--;
+        }
+        return toGive[treasure];
     }
 }
