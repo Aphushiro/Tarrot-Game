@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class ManaOrb : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D other)
+    Transform playerPos;
+    Rigidbody2D rb;
+    private void Start()
+    {
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+    private void FixedUpdate()
+    {
+        Vector2 dir = (Vector2)(playerPos.position - rb.transform.position).normalized;
+        rb.AddForce(dir * 5f, ForceMode2D.Force);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Player"))
         {

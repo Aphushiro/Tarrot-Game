@@ -36,11 +36,11 @@ public class PlayerStats : MonoBehaviour
     int wandUps = 0;
 
     // Tarot upgrades
-    public bool wandOrbsPierce = false;         // Magician
-    float highPriestessHealPercent = 0.5f;      // High Priestess
-    float empressSlowPercent = 0.1f;            // The Empress
-    float emperorSwordDmgBuffPercent = 0.5f;    // The Emperor
-    float hierophantPushAmount = 50f;           // The Hierophant
+    public bool wandOrbsPierce = false;                 // Magician
+    public float highPriestessHealPercent = 0.5f;       // High Priestess
+    public float empressSlowPercent = 0.1f;             // The Empress
+    public float emperorSwordDmgBuffPercent = 0.5f;     // The Emperor
+    public float hierophantPushAmount = 50f;            // The Hierophant
 
     void Awake()
     {
@@ -71,8 +71,9 @@ public class PlayerStats : MonoBehaviour
         pentacleVis.UpdatePentacles(curPentacles);
     }
 
-    public void SnapshotPlayerStats (int time)
+    public void SnapshotPlayerStats (float time)
     {
+        /*
         int mH = maxHealth;
         int cH = currentHealth;
 
@@ -81,20 +82,23 @@ public class PlayerStats : MonoBehaviour
 
         int maxP = maxPentacles;
         int curP = curPentacles;
-
+        */
         float wepDmg = wpn.swordDamage;
         float wepDel = wpn.swordDelay;
 
         float wanDmg = wpn.wandDamage;
         float wanDel = wpn.wandDelay;
+        bool wanPier = wandOrbsPierce;
 
-        StartCoroutine(ResetPlayerStats(time, mH, cH, mM, cM, maxP, curP, wepDmg, wepDel, wanDmg, wanDel));
+        StartCoroutine(ResetPlayerStats(time, /*mH, cH, mM, cM, maxP, curP,*/ wepDmg, wepDel, wanDmg, wanDel, wanPier));
     }
 
-    private IEnumerator ResetPlayerStats (int sec, int mH, int cH, float mM, float cM, int maxP, int curP, float wepDmg, float wepDel, float wanDmg, float wanDel)
+    private IEnumerator ResetPlayerStats (float sec, /*int mH, int cH, float mM, 
+        float cM, int maxP, int curP,*/ float wepDmg, float wepDel, float wanDmg, 
+        float wanDel, bool wanPier)
     {
         yield return new WaitForSeconds (sec);
-
+        /*
         maxHealth = mH;
         currentHealth = cH;
 
@@ -103,12 +107,13 @@ public class PlayerStats : MonoBehaviour
 
         maxPentacles = maxP;
         curPentacles = curP;
-
+        */
         wpn.swordDamage = wepDmg;
         wpn.swordDelay = wepDel;
 
         wpn.wandDamage = wanDmg;
         wpn.wandDelay = wanDel;
+        wandOrbsPierce = wanPier;
 
         UpdatePostStatUpgrade();
     }
@@ -117,7 +122,6 @@ public class PlayerStats : MonoBehaviour
     {
         currentMana += toGain;
         currentMana = Mathf.Clamp(currentMana, 0, maxMana);
-        Debug.Log(currentMana);
         cupManaBar.SetMana(currentMana);
     }
 
@@ -142,6 +146,20 @@ public class PlayerStats : MonoBehaviour
         }
         currentHealth -= intDmg;
         healthbar.SetHealth(currentHealth);
+    }
+    public void HealDamage(float damage)
+    {
+        int intDmg = Mathf.CeilToInt(damage);
+
+        currentHealth += intDmg;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        healthbar.SetHealth(currentHealth);
+    }
+
+    public void SwordDamageIncrease (float percent)
+    {
+        // Should only trigger after a snapshot has been made
+        wpn.swordDamage += wpn.swordDamage * percent;
     }
 
     void Die ()

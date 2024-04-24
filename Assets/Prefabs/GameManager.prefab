@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8594026039120557363}
   - component: {fileID: 6962351490014272635}
   - component: {fileID: 8864062688467766867}
+  - component: {fileID: 5654297188141191879}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70,6 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f794f2403aa5140b20774a1c774a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   healthbar: {fileID: 0}
   cupManaBar: {fileID: 0}
   pentacleVis: {fileID: 0}
@@ -80,3 +84,16 @@ MonoBehaviour:
   maxPentacles: 1
   curPentacles: 0
   wandOrbsPierce: 0
+--- !u!114 &5654297188141191879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8393038145049124821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282e6a06ab6f949498f319eddc488023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaOrbObj: {fileID: 2420996528633662315, guid: db8319e3497726948942061489c730f0, type: 3}

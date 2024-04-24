@@ -9,7 +9,7 @@ public class BounceMovement : MonoBehaviour
     [HideInInspector]
     public Vector2 direction;
     public float speed = 2f;
-    private float constantMagnitute;
+    [HideInInspector] public float constantMagnitute;
 
     void Awake()
     {

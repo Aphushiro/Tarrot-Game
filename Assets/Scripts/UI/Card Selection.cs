@@ -49,17 +49,24 @@ public class CardSelection : MonoBehaviour
         {
             return;
         }
-        if (discardPile.Count >= 0)
+        ClearHand();
+        foreach (Card card in discardPile)
         {
-            foreach (Card card in discardPile)
-            {
-                deck.Add(card);
-            }
-            discardPile.Clear();
+            deck.Add(card);
+        }
+        discardPile.Clear();
 
-            DrawCard();
-            DrawCard();
-            DrawCard();
+        DrawCard();
+        DrawCard();
+        DrawCard();
+    }
+
+    public void ClearHand ()
+    {
+
+        foreach (Card card in FindObjectsOfType<Card>())
+        {
+            card.DiscardCard();
         }
     }
 
@@ -71,17 +78,23 @@ public class CardSelection : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            cardScreenEnabled = !cardScreenEnabled;
+            ToggleCardScreen();
+        }
+    }
 
-            cardScreen.SetActive(cardScreenEnabled);
+    public void ToggleCardScreen ()
+    {
+        cardScreenEnabled = !cardScreenEnabled;
 
-            if (cardScreenEnabled == true)
-            {
-                Time.timeScale = 0f;
-            } else
-            {
-                Time.timeScale = 1f;
-            }
+        cardScreen.SetActive(cardScreenEnabled);
+
+        if (cardScreenEnabled == true)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 }

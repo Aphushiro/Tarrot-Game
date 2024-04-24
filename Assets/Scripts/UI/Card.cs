@@ -31,36 +31,42 @@ public class Card : MonoBehaviour
     public void Fool()
     {
         //Spawn mana orbs.
+        TarotPowers.Instance.TheFoolTarot();
         Debug.Log("The fool");
     }
 
     public void Magician()
     {
         //Your wand attacks can pierce for 10 seconds.
+        TarotPowers.Instance.TheMagicianTarot();
         Debug.Log("Magician");
     }
 
     public void HighPriestess()
     {
         //You heal 50% of your max HP.
+        TarotPowers.Instance.ThePriestessTarot();
         Debug.Log("High Priestess");
     }
 
     public void Empress()
     {
-        //Enemies’ movement and attacks are significantly slowed for 10 seconds.
+        //Enemies’ movement (and attacks) are significantly slowed for 10 seconds.
+        TarotPowers.Instance.TheEmpressTarot();
         Debug.Log("Empress");
     }
 
     public void Emperor()
     {
         //You deal more damage and attack rate.
+        TarotPowers.Instance.TheEmperorTarot();
         Debug.Log("Emperor");
     }
 
     public void Hierophant()
     {
         //You push all enemies away
+        TarotPowers.Instance.TheHierophantTarot();
         Debug.Log("Hierophant");
     }
 }
