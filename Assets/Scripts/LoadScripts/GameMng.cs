@@ -27,7 +27,7 @@ public class GameMng : MonoBehaviour
     public GameObject tarotCardPickupPrefab;
 
     //This thing is impossible to not hard code right now, but please expand for the future
-    int tarotCardsAvailable = 1;
+    public int tarotCardsAvailable = 0;
 
 
     void Awake()

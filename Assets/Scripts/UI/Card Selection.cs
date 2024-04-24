@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class CardSelection : MonoBehaviour
 {
+    public static CardSelection Instance;
     [SerializeField] GameObject cardScreen;
 
     bool cardScreenEnabled = false;
 
-
+    public List<Card> allCards = new List<Card>();
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
     public Transform[] cardSlots;
@@ -18,6 +19,33 @@ public class CardSelection : MonoBehaviour
 
     public TextMeshProUGUI deckSizeText;
     public TextMeshProUGUI discardPileText;
+
+    // Do not set this value below 4
+    int deckSizeStart = 5;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        // Set starting deck size
+        for (int i = 0; i < deckSizeStart; i++)
+        {
+            AcquireNewCard();
+        }
+        GameMng.Instance.tarotCardsAvailable = allCards.Count;
+    }
 
     public void DrawCard()
     {
@@ -96,5 +124,12 @@ public class CardSelection : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+    }
+
+    public void AcquireNewCard ()
+    {
+        if (allCards.Count <= 0) { Debug.Log("No more cards available");  return; }
+        deck.Add(allCards[0]);
+        allCards.RemoveAt(0);
     }
 }

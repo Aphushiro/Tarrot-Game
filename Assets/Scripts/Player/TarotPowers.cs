@@ -32,7 +32,7 @@ public class TarotPowers : MonoBehaviour
 
     public void TheFoolTarot () //Spawn mana orbs.
     {
-        int manaToDrop = 30;
+        int manaToDrop = 20;
         for (int i = 0; i < manaToDrop; i++)
         {
             float randomDir = Random.Range(0, Mathf.PI * 2);
@@ -99,6 +99,20 @@ public class TarotPowers : MonoBehaviour
 
     public void TheHierophantTarot () //You push all enemies away
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float force = 13f;
 
+        foreach (GameObject enemy in enemies)
+        {
+            Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+            float dist = Vector2.Distance(enemyRb.position, playerTransform.position);
+            float maxDist = 15;
+
+            if (dist > maxDist) { return; }
+            if (enemyRb == null) { return; }
+
+            Vector2 dir = (Vector2)(enemyRb.transform.position - playerTransform.position).normalized;
+            enemyRb.AddForce(dir * force, ForceMode2D.Impulse);
+        }
     }
 }

@@ -14,8 +14,6 @@ public class DoorInteraction : MonoBehaviour
 
     void Update()
     {
-        
-
         // Interact with doors
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -39,7 +37,6 @@ public class DoorInteraction : MonoBehaviour
             {
                 hit.collider.transform.GetComponent<DoorInteract>().PlayerInteractedWithRay();
             }
-            
         }
     }
 }
