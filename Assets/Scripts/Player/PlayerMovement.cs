@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    bool canMove = false;
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -18,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (canMove == false) { return; }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+    }
+
+    public void ToggleCanMove()
+    {
+        canMove = !canMove;
     }
 }

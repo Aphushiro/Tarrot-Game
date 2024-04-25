@@ -112,6 +112,7 @@ public class ReplaceFinal : MonoBehaviour
             GenEmptyRoom(room);
         }
         threeRooms.Clear();
+        GameMng.Instance.OnFinishedLoadingFloor();
     }
 
     public void OrderRooms ()

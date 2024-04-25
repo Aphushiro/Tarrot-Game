@@ -12,11 +12,14 @@ public class LoadScreenFader : MonoBehaviour
     float fadeTime = 1f;
 
     float fadeMod = 1f;
-    bool fadeIn = true;
 
     bool shouldUpdate = false;
 
-    
+
+    public void BeginFadeOut()
+    {
+        StartCoroutine(FadeOut());
+    }
 
     public IEnumerator FadeOut ()
     {
@@ -28,7 +31,12 @@ public class LoadScreenFader : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public IEnumerator FadeIn ()
+    public void BeginFadeIn()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn ()
     {
         shouldUpdate = true;
         fadeMod = 1f;
@@ -44,6 +52,7 @@ public class LoadScreenFader : MonoBehaviour
     private void Update()
     {
         if (shouldUpdate == false) { return; }
+        fadeAlpha += Time.deltaTime * fadeMod;
 
         foreach (Image sprite in toFade)
         {

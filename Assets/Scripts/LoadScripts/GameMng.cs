@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameMng : MonoBehaviour
 {
     public static GameMng Instance;
+
+    public UnityEvent onFloorLoaded;
 
     public int currentLevel = 0;
     public static int maxRooms;
@@ -29,6 +32,10 @@ public class GameMng : MonoBehaviour
     //This thing is impossible to not hard code right now, but please expand for the future
     public int tarotCardsAvailable = 0;
 
+    public void OnFinishedLoadingFloor ()
+    {
+        onFloorLoaded.Invoke();
+    }
 
     void Awake()
     {
