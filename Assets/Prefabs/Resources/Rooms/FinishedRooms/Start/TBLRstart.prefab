@@ -3215,7 +3215,7 @@ GameObject:
   - component: {fileID: 6036263456065097995}
   m_Layer: 0
   m_Name: TBLRstart
-  m_TagString: StartingRoom
+  m_TagString: FinalRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

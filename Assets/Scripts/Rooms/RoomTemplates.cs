@@ -9,6 +9,8 @@ public class OnTemplateOver : UnityEvent<float[]> { }
 
 public class RoomTemplates : MonoBehaviour
 {
+    public GameObject startRoom;
+
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
@@ -29,6 +31,7 @@ public class RoomTemplates : MonoBehaviour
     private void Start()
     {
         replaceFinal = GetComponent<ReplaceFinal>();
+        CreateStartRoom();
     }
 
     private void Update()
@@ -55,6 +58,20 @@ public class RoomTemplates : MonoBehaviour
         }
     }
 
+    void CreateStartRoom ()
+    {
+        GameObject initRoom = Instantiate(startRoom, Vector2.zero, Quaternion.identity);
+    }
+
+    public void FullClearFloor()
+    {
+        currentRooms.Clear();
+        roomLimitReached = false;
+        timeToUpdate = 2f;
+        curRooms = 0;
+        floorIsLoading = true;
+        Invoke("CreateStartRoom", 1f);
+    }
 
     IEnumerator FinishTemplates ()
     {

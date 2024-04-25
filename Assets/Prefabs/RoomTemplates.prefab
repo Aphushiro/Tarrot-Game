@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8d7d5420094f046b3ff3081c96c322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startRoom: {fileID: 7589382593210228261, guid: 21daa58f22d495c49b45745ed80e93bd, type: 3}
   bottomRooms:
   - {fileID: 7589382593210228261, guid: fa2c1d6687c616d4fa55dcf8650a39a9, type: 3}
   - {fileID: 7589382593210228261, guid: 2b373548e1f5b3745a1f787614fde6de, type: 3}
@@ -81,6 +82,9 @@ MonoBehaviour:
   roomLimitReached: 0
   timeToUpdate: 5
   floorIsLoading: 1
+  onTemplateOver:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8525217078468657188
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,6 +29,8 @@ public class LoadScreenFader : MonoBehaviour
         text.SetActive(false);
         yield return new WaitForSeconds(fadeTime);
         panel.SetActive(false);
+        fadeAlpha = 0f;
+        shouldUpdate = false;
     }
 
     public void BeginFadeIn()
@@ -45,11 +47,11 @@ public class LoadScreenFader : MonoBehaviour
         yield return new WaitForSeconds(fadeTime);
         text.SetActive(true);
 
-
+        fadeAlpha = 1f;
         shouldUpdate = false;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (shouldUpdate == false) { return; }
         fadeAlpha += Time.deltaTime * fadeMod;

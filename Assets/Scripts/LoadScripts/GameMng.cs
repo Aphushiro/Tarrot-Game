@@ -35,6 +35,7 @@ public class GameMng : MonoBehaviour
     public void OnFinishedLoadingFloor ()
     {
         onFloorLoaded.Invoke();
+        FindObjectOfType<PlayerMovement>().ToggleCanMove();
     }
 
     void Awake()
@@ -110,5 +111,25 @@ public class GameMng : MonoBehaviour
             tarotCardsAvailable--;
         }
         return toGive[treasure];
+    }
+
+    public void ResetGame ()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
+        GameObject[] finRooms = GameObject.FindGameObjectsWithTag("FinalRoom");
+        foreach (GameObject finRoom in finRooms)
+        {
+            Destroy(finRoom);
+        }
+
+        FindObjectOfType<ReplaceFinal>().FullClearFloor();
+        FindObjectOfType<PlayerMovement>().ToggleCanMove();
+
+        FindObjectOfType<RoomTemplates>().FullClearFloor();
     }
 }

@@ -146,6 +146,10 @@ public class PlayerStats : MonoBehaviour
         }
         currentHealth -= intDmg;
         healthbar.SetHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
     public void HealDamage(float damage)
     {
@@ -160,11 +164,6 @@ public class PlayerStats : MonoBehaviour
     {
         // Should only trigger after a snapshot has been made
         wpn.swordDamage += wpn.swordDamage * percent;
-    }
-
-    void Die ()
-    {
-
     }
 
     public int DepositPentacles (int toDep)
@@ -242,13 +241,37 @@ public class PlayerStats : MonoBehaviour
 
 
     // Death or other meta stuff ------
+    public void Die()
+    {
+        OnDeath.Invoke();
+        StartCoroutine(ResetWorld());
+    }
+
+    IEnumerator ResetWorld()
+    {
+        // Hard coded to match load screen time
+        yield return new WaitForSeconds(2f);
+        RespawnPlayer();
+    }
+
     public void RespawnPlayer ()
     {
         ResetPentacles();
-    }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = Vector2.zero;
 
-    public void RestartPosition ()
-    {
-        transform.position = Vector2.zero;
+        cupUps = 0;
+        swordUps = 0;
+        pentacleUps = 0;
+        wandUps = 0;
+
+
+        HealDamage(maxHealth);
+        maxMana = 1f;
+        ExpendMana(currentMana);
+        wpn.swordDamage = wpn.baseDamage;
+        wpn.wandDamage = wpn.baseDamage;
+        maxPentacles = 1;
+        ResetPentacles();
     }
 }

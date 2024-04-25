@@ -23,6 +23,19 @@ public class ReplaceFinal : MonoBehaviour
         roomTemplates = GetComponent<RoomTemplates>();
     }
 
+    public void FullClearFloor()
+    {
+        startRoom = null;
+        oneRooms.Clear();
+        twoRooms.Clear();
+        threeRooms.Clear();
+
+        finRooms.Clear();
+        bossCount = 1;
+        treasureCount = 1;
+        enemyCount = 0;
+    }
+
     public void StartRoomReplacement ()
     {
         StartCoroutine(ConstructRoom());
@@ -289,4 +302,5 @@ public class ReplaceFinal : MonoBehaviour
         GameObject newEmpty = Instantiate(newRoom, pos, Quaternion.identity);
         finRooms.Add(newEmpty);
     }
+
 }
