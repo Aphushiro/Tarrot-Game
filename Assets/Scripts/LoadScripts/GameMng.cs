@@ -59,7 +59,7 @@ public class GameMng : MonoBehaviour
     {
         SetMaxRooms(0);
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
             availableEnemies.Add(allEnemies[nextEnemy]);
             nextEnemy++;
@@ -125,6 +125,12 @@ public class GameMng : MonoBehaviour
         foreach (GameObject finRoom in finRooms)
         {
             Destroy(finRoom);
+        }
+
+        GameObject[] lootTrash = GameObject.FindGameObjectsWithTag("Loot");
+        foreach (GameObject loot in lootTrash)
+        {
+            Destroy(loot);
         }
 
         FindObjectOfType<ReplaceFinal>().FullClearFloor();

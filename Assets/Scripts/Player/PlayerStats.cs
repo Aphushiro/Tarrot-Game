@@ -26,13 +26,13 @@ public class PlayerStats : MonoBehaviour
     float wandModifier = 1.0f;
     float wandUpAmount = 0.1f;
 
-    public int maxPentacles = 1;
+    public int maxPentacles = 3;
     public int curPentacles = 0;
 
     // Stat upgrades count
     int cupUps = 0;
     int swordUps = 0;
-    int pentacleUps = 0;
+    int pentacleUps = 2;
     int wandUps = 0;
 
     // Tarot upgrades
@@ -69,6 +69,8 @@ public class PlayerStats : MonoBehaviour
 
         curPentacles = maxPentacles;
         pentacleVis.UpdatePentacles(curPentacles);
+
+        UpdatePostStatUpgrade();
     }
 
     public void SnapshotPlayerStats (float time)
@@ -262,7 +264,7 @@ public class PlayerStats : MonoBehaviour
 
         cupUps = 0;
         swordUps = 0;
-        pentacleUps = 0;
+        pentacleUps = 2;
         wandUps = 0;
 
 
@@ -273,5 +275,7 @@ public class PlayerStats : MonoBehaviour
         wpn.wandDamage = wpn.baseDamage;
         maxPentacles = 1;
         ResetPentacles();
+
+        UpdatePostStatUpgrade();
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - StartingRoom
   - FinalRoom
   - Enemy
+  - Loot
   layers:
   - Default
   - TransparentFX
